@@ -1,0 +1,76 @@
+# Baut den statischen Export und veröffentlicht ihn auf GitHub Pages.
+# Läuft bei jedem Push auf main. Keine Geheimnisse nötig: die Demo baut ohne Env-Variablen.
+# Zusätzlich wird der Vercel-Modus probegebaut (lokale Inhalte, ohne Sanity), damit die spätere Umstellung nicht unbemerkt bricht.
+name: GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run inhalt:pruefen
+      - run: npm run lint
+      - run: npm run typecheck
+      # BASE_PATH ist im Code als /altec-elektro-demo voreingestellt (lib/deploy-ziel.ts);
+      # hier zur Sicherheit aus dem Repository-Namen abgeleitet.
+      - run: npm run build:pages
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}
+      - run: npm run export:pruefen
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+      # Browser-QA gegen den fertigen Export (Chrome ist auf ubuntu-latest vorinstalliert)
+      - run: (node scripts/vorschau-server.mjs > /tmp/vorschau.log 2>&1 &) && sleep 2 && npm run qa
+        env:
+          BASE_PATH: /${{ github.event.repository.name }}
+          BASE: http://localhost:4321/${{ github.event.repository.name }}
+          CHROME_PATH: /usr/bin/google-chrome
+
+  vercel-probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      # Server-Modus mit lokalen Inhalten (kein Sanity): prüft nur, dass Studio-/API-Routen kompilieren.
+      - run: npm run build:vercel
+        env:
+          SITE_URL: https://altec-elektro-demo.vercel.app
+          NEXT_PUBLIC_SANITY_PROJECT_ID: probe0000
+          NEXT_PUBLIC_SANITY_DATASET: production
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

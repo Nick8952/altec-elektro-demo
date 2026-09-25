@@ -1,0 +1,26 @@
+# Abhängigkeiten
+/node_modules
+
+# Next.js
+/.next/
+/out/
+
+# Umgebungsvariablen (nie committen); die Beispieldatei bleibt versioniert
+.env*
+!.env.example
+
+# Vercel / TypeScript
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+
+# Server-Routen (Studio, API) werden nur beim Vercel-Build aus server-routes/ nach app/ kopiert
+/app/studio
+/app/api
+
+# Lokale Prüfausgaben (Audit-Berichte, Screenshots)
+/pruefung
+
+# System
+.DS_Store
+npm-debug.log*
