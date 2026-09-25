@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+/*
+ * Design «Sammelschiene» (siehe docs/DESIGN.md).
+ * Eine Akzentfarbe (Logo-Rot), kühle Neutraltöne, eine Schriftfamilie (Schibsted Grotesk, lokal),
+ * feste Eckenradien (4 px Bedienelemente, 8 px Flächen), Bewegung nur als Einblenden beim Scrollen.
+ */
+@theme static {
+  --color-rot: #b3161f;
+  --color-rot-dunkel: #8c1018;
+  --color-rot-hell: #fbecec;
+  --color-tinte: #171a1f;
+  --color-tinte-2: #3f4650;
+  --color-grau: #5f6670;
+  --color-linie: #d6dbe1;
+  --color-linie-hell: #e8ecf0;
+  --color-flaeche: #f2f4f6;
+  --color-papier: #ffffff;
+  --font-sans: var(--font-schrift), "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --radius-klein: 4px;
+  --radius-mittel: 8px;
+  --breakpoint-xs: 30rem;
+  --ease-heraus: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html { color-scheme: light; scroll-padding-top: 5rem; }
+  body { @apply bg-papier font-sans text-tinte antialiased; font-size: 1.0625rem; line-height: 1.6; text-rendering: optimizeLegibility; }
+  h1, h2, h3, h4 { @apply font-bold text-tinte; text-wrap: balance; letter-spacing: -0.015em; overflow-wrap: anywhere; hyphens: auto; }
+  p { text-wrap: pretty; }
+  ::selection { background: var(--color-rot-hell); }
+  :focus-visible { outline: 3px solid var(--color-rot); outline-offset: 3px; border-radius: var(--radius-klein); }
+  img { display: block; max-width: 100%; height: auto; }
+  summary { list-style: none; }
+  summary::-webkit-details-marker { display: none; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+}
+
+@layer components {
+  .behaelter { @apply mx-auto w-full max-w-[76rem] px-4 sm:px-6 lg:px-8; }
+  .abschnitt { @apply py-14 md:py-20 lg:py-24; }
+  .titel-1 { @apply text-[2rem] leading-[1.06] xs:text-[2.25rem] sm:text-[2.75rem] md:text-[3.25rem] lg:text-[3.75rem]; letter-spacing: -0.03em; }
+  .titel-2 { @apply text-[1.75rem] leading-[1.15] md:text-[2.25rem]; letter-spacing: -0.02em; }
+  .titel-3 { @apply text-[1.25rem] leading-[1.25] md:text-[1.375rem]; letter-spacing: -0.01em; }
+  .lauftext { @apply max-w-[65ch] text-tinte-2; }
+  .klein { @apply text-[0.9375rem] leading-[1.55]; }
+  .nur-sr { @apply sr-only; }
+
+  .knopf { @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-[var(--radius-klein)] px-5 py-3 text-[1rem] font-semibold leading-tight transition-[background-color,color,border-color,transform] duration-200 active:translate-y-px; }
+  .knopf-primaer { @apply bg-rot text-papier hover:bg-rot-dunkel; }
+  .knopf-sekundaer { @apply border border-tinte bg-papier text-tinte hover:bg-flaeche; }
+  .knopf-hell { @apply border border-linie bg-papier text-tinte hover:border-tinte; }
+  .knopf-klein { @apply min-h-11 px-4 py-2 text-[0.9375rem]; }
+  .textlink { @apply font-semibold text-rot underline decoration-rot/30 underline-offset-[0.2em] transition-colors hover:decoration-rot; }
+
+  /* Sammelschiene: die rote Leitung, von der die Leistungen abzweigen (Signaturelement) */
+  .schiene { position: relative; }
+  .schiene-eintrag { position: relative; }
+  @media (max-width: 47.99rem) {
+    .schiene { border-left: 3px solid var(--color-rot); }
+    .schiene-eintrag { padding-left: 1.75rem; }
+    .schiene-eintrag::before { content: ""; position: absolute; left: 0; top: 1.5rem; width: 1.25rem; height: 3px; background: var(--color-rot); }
+  }
+  @media (min-width: 48rem) {
+    .schiene-reihe { border-top: 3px solid var(--color-rot); }
+    .schiene-eintrag { padding-top: 1.75rem; }
+    .schiene-eintrag::before { content: ""; position: absolute; left: 1.5rem; top: 0; width: 3px; height: 1.5rem; background: var(--color-rot); }
+  }
+  .symbol-box { @apply inline-flex size-12 items-center justify-center rounded-[var(--radius-klein)] border border-linie bg-papier text-rot; }
+
+  .feld { @apply grid gap-2; }
+  .feld label { @apply text-[0.9375rem] font-semibold text-tinte; }
+  .feld input, .feld select, .feld textarea { @apply w-full rounded-[var(--radius-klein)] border border-linie bg-papier px-3 py-3 text-[1rem] text-tinte transition-colors focus:border-tinte; min-height: 3rem; }
+  .feld input[aria-invalid="true"], .feld textarea[aria-invalid="true"] { @apply border-rot; }
+  .feld-hilfe { @apply text-[0.9375rem] leading-[1.55] text-grau; }
+  .fehler { @apply font-semibold text-rot; }
+
+  .rechtstext h2 { @apply mt-10 mb-3 text-[1.25rem] leading-[1.25] md:text-[1.375rem]; letter-spacing: -0.01em; }
+  .rechtstext h3 { @apply mt-6 mb-2 text-[1.0625rem] font-bold; }
+  .rechtstext p { @apply mb-4 text-tinte-2; }
+  .rechtstext ul { @apply mb-4 list-disc pl-5 text-tinte-2; }
+  .rechtstext ol { @apply mb-4 list-decimal pl-5 text-tinte-2; }
+  .rechtstext li { @apply mb-1; }
+  .rechtstext blockquote { @apply my-4 border-l-2 border-rot pl-4 text-tinte; }
+  .rechtstext strong { @apply font-bold text-tinte; }
+  .rechtstext a { @apply font-semibold text-rot underline decoration-rot/30 underline-offset-[0.2em] transition-colors hover:decoration-rot; }
+}
+
+/* Einblenden beim Scrollen: nur bei ausdrücklich erlaubter Bewegung und nur, wenn der Browser Scroll-Timelines kennt.
+   Ohne beides ist alles sofort sichtbar (kein Inhalt hängt an JavaScript oder Animation). */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .auftauchen { animation: auftauchen 0.7s var(--ease-heraus) both; animation-timeline: view(); animation-range: entry 0% entry 28%; }
+  }
+  .hero-auftritt > * { animation: hero-auftritt 0.8s var(--ease-heraus) both; }
+  .hero-auftritt > :nth-child(2) { animation-delay: 80ms; }
+  .hero-auftritt > :nth-child(3) { animation-delay: 160ms; }
+  .hero-auftritt > :nth-child(4) { animation-delay: 240ms; }
+}
+@keyframes auftauchen { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes hero-auftritt { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+/* Mobiles Menü und Einstellungsdialog: natives <dialog> mit Fokusfang */
+dialog::backdrop { background: rgb(23 26 31 / 0.45); }
+dialog[open] { animation: dialog-auf 0.25s var(--ease-heraus) both; }
+@keyframes dialog-auf { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { dialog[open], .hero-auftritt > *, .auftauchen { animation: none !important; } }
