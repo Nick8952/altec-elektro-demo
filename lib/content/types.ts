@@ -198,7 +198,15 @@ interface BausteinBasis {
 }
 export interface TextBaustein extends BausteinBasis { _type: "textBaustein"; inhalt: RichText; bild?: Bild; bildPosition?: "links" | "rechts"; breite?: "schmal" | "normal" }
 export interface LeistungenBaustein extends BausteinBasis { _type: "leistungenBaustein"; einleitung?: string; darstellung: "schiene" | "raster"; leistungen: Leistung[] }
-export interface ZitatBaustein extends BausteinBasis { _type: "zitatBaustein"; zitat: string; inhalt?: RichText }
+export interface ZitatBaustein extends BausteinBasis { _type: "zitatBaustein"; zitat: string; inhalt?: RichText; bild?: Bild; bildText?: string }
+/** Belegte Merkmale des Betriebs als Leiste (keine Kennzahlen). */
+export const FAKT_SYMBOLE = ["siegel", "diplom", "uhr", "ort"] as const;
+export type FaktSymbol = (typeof FAKT_SYMBOLE)[number];
+export interface FaktenBaustein extends BausteinBasis { _type: "faktenBaustein"; fakten: { _key: string; titel: string; text: string; symbol: FaktSymbol }[] }
+/** Einstiege nach Zielgruppe (Wohnen, Büro, Industrie), je mit Bild und Link in eine Leistung. */
+export interface ZielgruppenBaustein extends BausteinBasis { _type: "zielgruppenBaustein"; einleitung?: string; gruppen: { _key: string; titel: string; text: string; bild?: Bild; link: Link }[] }
+/** Ablauf in Schritten (echte Reihenfolge: planen, ausführen, warten). */
+export interface AblaufBaustein extends BausteinBasis { _type: "ablaufBaustein"; einleitung?: string; schritte: { _key: string; titel: string; text: string; link?: Link }[]; knopf?: Link }
 export interface SpaltenBaustein extends BausteinBasis { _type: "spaltenBaustein"; einleitung?: string; spalten: { _key: string; titel: string; inhalt: RichText }[] }
 export interface NotfallBaustein extends BausteinBasis { _type: "notfallBaustein"; einleitung?: string; mitGebieten: boolean; kompakt?: boolean }
 export interface TeamBaustein extends BausteinBasis { _type: "teamBaustein"; einleitung?: string; team: Teammitglied[] }
@@ -207,8 +215,8 @@ export interface KontaktBaustein extends BausteinBasis { _type: "kontaktBaustein
 export interface AufrufBaustein extends BausteinBasis { _type: "aufrufBaustein"; text?: string; knopf: Link; zweiterKnopf?: Link }
 export interface HinweisBaustein extends BausteinBasis { _type: "hinweisBaustein"; inhalt: RichText; art: "info" | "wichtig" }
 
-export type Baustein = TextBaustein | LeistungenBaustein | ZitatBaustein | SpaltenBaustein | NotfallBaustein | TeamBaustein | PartnerBaustein | KontaktBaustein | AufrufBaustein | HinweisBaustein;
-export const BEKANNTE_BAUSTEINE: ReadonlySet<string> = new Set(["textBaustein", "leistungenBaustein", "zitatBaustein", "spaltenBaustein", "notfallBaustein", "teamBaustein", "partnerBaustein", "kontaktBaustein", "aufrufBaustein", "hinweisBaustein"]);
+export type Baustein = TextBaustein | LeistungenBaustein | ZitatBaustein | SpaltenBaustein | NotfallBaustein | TeamBaustein | PartnerBaustein | KontaktBaustein | AufrufBaustein | HinweisBaustein | FaktenBaustein | ZielgruppenBaustein | AblaufBaustein;
+export const BEKANNTE_BAUSTEINE: ReadonlySet<string> = new Set(["textBaustein", "leistungenBaustein", "zitatBaustein", "spaltenBaustein", "notfallBaustein", "teamBaustein", "partnerBaustein", "kontaktBaustein", "aufrufBaustein", "hinweisBaustein", "faktenBaustein", "zielgruppenBaustein", "ablaufBaustein"]);
 
 export interface Hero {
   titel: string;
@@ -216,8 +224,12 @@ export interface Hero {
   knopf?: Link;
   zweiterKnopf?: Link;
   bild?: Bild;
-  /** «bildband» = Startseite mit Bildband unter dem Text; «kompakt» = Titelblock */
-  variante: "bildband" | "kompakt";
+  /** «verteiler» = Startseite mit Direkteinstieg-Panel aller Leistungen; «bildband» = Titel mit Bildband; «kompakt» = Titelblock */
+  variante: "verteiler" | "bildband" | "kompakt";
+  /** Nur «verteiler»: alle Leistungen, vom Adapter aufgelöst */
+  leistungen?: Leistung[];
+  /** Nur «verteiler»: Überschrift des Panels */
+  panelTitel?: string;
 }
 
 export interface Seite {

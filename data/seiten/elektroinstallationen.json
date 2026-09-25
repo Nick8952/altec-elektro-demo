@@ -18,13 +18,13 @@
  "bausteine": [
   {
    "_type": "leistungenBaustein",
-   "_key": "bsb",
+   "_key": "bsd",
    "anker": "leistungen",
    "darstellung": "raster"
   },
   {
    "_type": "aufrufBaustein",
-   "_key": "bsc",
+   "_key": "bse",
    "titel": "Nicht sicher, welcher Bereich passt?",
    "text": "Beschreiben Sie uns Ihr Vorhaben. Wir sagen Ihnen, was nötig ist.",
    "knopf": {

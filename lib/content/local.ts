@@ -84,6 +84,10 @@ async function baustein(roh: Record<string, unknown>, seite: string): Promise<Ba
       return mk({ leistungen: await leistungen(), darstellung: roh.darstellung ?? "schiene" });
     case "teamBaustein":
       return mk({ team: await team() });
+    case "zitatBaustein":
+      return mk({ bild: await bild(roh.bild as BildReferenz | undefined, ort) });
+    case "zielgruppenBaustein":
+      return mk({ gruppen: await Promise.all(((roh.gruppen as Record<string, unknown>[]) ?? []).map(async (g) => ({ ...g, bild: await bild(g.bild as BildReferenz | undefined, `${ort} Gruppe ${g._key}`) }))) });
     case "partnerBaustein":
       return mk({ partner: await partner() });
     case "notfallBaustein":
@@ -115,7 +119,7 @@ export const lokaleQuelle: Inhaltsquelle = {
     return {
       ...roh,
       alteUrls: roh.alteUrls ?? [],
-      hero: roh.hero ? { ...roh.hero, bild: await bild(roh.hero.bild, `Hero ${slug}`) } : undefined,
+      hero: roh.hero ? { ...roh.hero, bild: await bild(roh.hero.bild, `Hero ${slug}`), leistungen: roh.hero.variante === "verteiler" ? await leistungen() : undefined } : undefined,
       bausteine: await Promise.all(roh.bausteine.map((b) => baustein(b, slug))),
     };
   },

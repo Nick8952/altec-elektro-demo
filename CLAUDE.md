@@ -17,8 +17,9 @@ Tokens oder Zugänge. Die Demo funktioniert vollständig ohne diese Dienste, ohn
 app/                 layout.tsx (Kopf, Fuss, mobile Leiste, Einwilligung, Schrift via next/font/local, JSON-LD nur bei Freigabe), page.tsx (Start),
                      [...pfad]/page.tsx (alle Unterseiten inkl. Leistungen, generateStaticParams; dynamicParams wird von scripts/vercel-routen.mjs
                      je Betriebsart gesetzt), Seite.tsx, not-found.tsx, icon.svg, robots.ts + sitemap.ts (je INDEXIERUNG), globals.css (Tokens)
-components/          UI-Bausteine, deutsch benannt: Navigation (Untermenü, <dialog>), Hero, Leistungen (Sammelschiene), Notfall, Team,
-                     Partner, Kontakt + Anfrageformular (mailto), Zitat, Spalten, Text, Hinweis, Aufruf, Fusszeile, MobilLeiste,
+components/          UI-Bausteine, deutsch benannt: Navigation (Untermenü, <dialog>), Hero (Varianten verteiler/bildband/kompakt), Leistungen
+                     (Sammelschiene), Fakten, Zielgruppen, Ablauf, Notfall, Team, Partner, Kontakt + Anfrageformular (mailto), Zitat (mit Bild),
+                     Spalten, Text, Hinweis, Aufruf, Fusszeile, MobilLeiste,
                      Einwilligung (ruhend), Logo (Vektor-Nachbau), Symbol (Schema-Zeichen), Bild, RichText, SmartLink, LeistungSeite
 lib/content/         Inhaltsschnittstelle: types.ts, local.ts (JSON), sanity.ts (GROQ), index.ts (Auswahl über CONTENT_SOURCE)
 lib/                 deploy-ziel.ts (basePath/siteUrl), assets.ts (assetUrl, telLink, Linkregeln), seo.ts (Metadata, JSON-LD, noindex),

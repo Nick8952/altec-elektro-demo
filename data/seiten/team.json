@@ -19,13 +19,13 @@
  "bausteine": [
   {
    "_type": "teamBaustein",
-   "_key": "bso",
+   "_key": "bsq",
    "anker": "team",
    "einleitung": "Für die technische Aufsicht ist der eidgenössisch diplomierte Installateur zuständig."
   },
   {
    "_type": "aufrufBaustein",
-   "_key": "bsp",
+   "_key": "bsr",
    "titel": "Sie möchten mit uns arbeiten?",
    "text": "Ob Projekt oder Störung: Rufen Sie an oder schreiben Sie uns.",
    "knopf": {

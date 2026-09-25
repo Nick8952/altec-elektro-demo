@@ -39,8 +39,17 @@ es wurden keine ergänzt.
 
 ## Redaktionelle Ergänzungen (keine neuen Fakten)
 
-- Hero-Titel Startseite «Elektroinstallationen für Zürich. Geplant, ausgeführt, gewartet.» fasst Planung/Ausführung/Service aus den Leitsätzen zusammen.
-- Hero-Untertitel fasst Kerngeschäft und Lage zusammen (Wohn-, Büro-, Industrie-, Gewerbebauten; Seefeld).
+- Hero-Titel Startseite «Elektroinstallationen für Zürich.» und Untertitel «Geplant, ausgeführt, gewartet: …» fassen Planung/Ausführung/Service,
+  Kerngeschäft und Lage aus den Leitsätzen zusammen; Panel «Direkteinstieg» listet die acht Leistungen (Titel wie in der Quelle).
+- Faktenleiste: «konzessionierter Elektroinstallationsbetrieb, Personal laufend aus- und weitergebildet» (Seite Sicherheit), «eidgenössisch
+  diplomierter Installateur, technische Aufsicht» (Seite Team), «7×24 Stunden, 365 Tage, qualifizierte Elektroinstallateure» (Notfallseite),
+  «zentrale Lage im Zürcher Seefeld, schnell vor Ort» (Startseite).
+- «Für Wohnung, Büro und Betrieb»: Texte aus den Leistungsseiten Neu- und Umbauten, Apparateverkauf, Telekommunikation, Beleuchtung
+  (Augenflimmern), Industrie und Gewerbe; Zuordnung zu Zielgruppen ist redaktionell.
+- «Geplant. Ausgeführt. Gewartet.»: Schritte aus Planung (CAD, Farbdruck, planerische Weitsicht), Neu- und Umbauten (termin- und fachgerecht),
+  Service und Unterhalt (seltenste Phänomene, 7×24). Einleitungssatz «Drei Schritte, ein Ansprechpartner …» ist redaktionell.
+- Bildzeile beim Leitsatz: «Zürich, Limmatquai. Hedwigstrasse 12 liegt im Seefeld, Kreis 8.» (Bildmotiv erkennbar; Seefeld laut Quelle,
+  Kreis 8 = Stadtkreis des Seefelds, öffentliche Tatsache).
 - Handlungsaufforderungen: «Projekt anfragen», «Notfalldienst anrufen», «Kontakt» (keine Offerte-/Antwortzeit-Versprechen).
 - Auswahl «Anliegen» im Formular leitet sich aus den acht Leistungsbereichen ab.
 - Hinweise auf der Notfall- und Partnerseite erklären, was die Quelle nicht hergibt (Tarife, weitere Partner-Websites).

@@ -8,21 +8,51 @@ export default [
     seoBeschreibung: "Altec Elektro GmbH, Zürich Seefeld: Elektroplanung und Elektroinstallationen für Stark- und Schwachstrom, Telekommunikation, Service und 7×24-Stunden-Notfalldienst.",
     alteUrls: ["/"], quelle: "https://www.altec-elektro.ch/",
     hero: {
-      variante: "bildband",
-      titel: "Elektroinstallationen für Zürich. Geplant, ausgeführt, gewartet.",
-      text: "Elektroplanung, Starkstrom und Schwachstrom für Wohn-, Büro-, Industrie- und Gewerbebauten, aus dem Zürcher Seefeld.",
+      variante: "verteiler",
+      titel: "Elektroinstallationen für Zürich.",
+      text: "Geplant, ausgeführt, gewartet: Starkstrom, Schwachstrom und Telekommunikation für Wohn-, Büro-, Industrie- und Gewerbebauten, aus dem Seefeld.",
       knopf: { titel: "Projekt anfragen", ziel: "/kontakt/" },
       zweiterKnopf: { titel: "Notfalldienst anrufen", ziel: "tel:+41448400770" },
-      bild: bild("hero-zuerich", "Zürich am Abend: Limmatquai mit Blick auf die Altstadt"),
+      panelTitel: "Direkteinstieg: Was brauchen Sie?",
     },
     bausteine: [
-      b("leistungenBaustein", { anker: "leistungen", titel: "Unsere Leistungen", darstellung: "schiene", einleitung: "Stark- und Schwachstrom: Planung und Projektierung, Service und Unterhalt, Beleuchtung, Telekommunikation, Multimedia, Kabelfernseh-Systeme und SAT-Anlagen." }),
+      b("faktenBaustein", {
+        fakten: [
+          { _key: "konzession", titel: "Konzessionierter Elektroinstallationsbetrieb", text: "Personal wird laufend aus- und weitergebildet.", symbol: "siegel" },
+          { _key: "diplom", titel: "Eidg. dipl. Installateur", text: "Zuständig für die technische Aufsicht.", symbol: "diplom" },
+          { _key: "notfall", titel: "7×24-Stunden-Notfalldienst", text: "365 Tage im Jahr mit qualifizierten Elektroinstallateuren.", symbol: "uhr" },
+          { _key: "seefeld", titel: "Zentral im Zürcher Seefeld", text: "Schnell vor Ort in der Stadt Zürich und der Agglomeration.", symbol: "ort" },
+        ],
+      }),
+      b("zielgruppenBaustein", {
+        anker: "fuer-wen",
+        titel: "Für Wohnung, Büro und Betrieb",
+        einleitung: "Stark- und Schwachstrom, Multimedia, Kabelfernseh-Systeme und SAT-Anlagen: Wählen Sie den Einstieg, der zu Ihrem Objekt passt.",
+        gruppen: [
+          { _key: "wohnen", titel: "Wohnen", text: "Von der Sanierung der Altbauwohnung bis zur digital vernetzten Villa: Küchenumbau, Beleuchtung, Apparate gebrauchsfertig geliefert und angeschlossen.", bild: bild("leistung-neubau", "Rohbau mit Elektroinstallationen"), link: { titel: "Neu- und Umbauten", ziel: "/elektroinstallationen/neu-und-umbauten/" } },
+          { _key: "buero", titel: "Büro", text: "Infrastruktur für den Bürokomplex, EDV-Vernetzung vom Tischtelefon bis zum Patchpanel und Beleuchtung, die nicht flimmert.", bild: bild("leistung-telekom", "Netzwerkkabel in einem Patchpanel"), link: { titel: "Telekommunikation", ziel: "/elektroinstallationen/telekommunikation/" } },
+          { _key: "industrie", titel: "Industrie und Gewerbe", text: "Lüftungsanlagen, Heizungen, Förderanlagen: von der Schützensteuerung bis zur KNX-Steuerung, mit langjähriger Erfahrung im Industrieservice.", bild: bild("leistung-industrie", "Industrieanlage mit Schaltschrank"), link: { titel: "Industrie und Gewerbe", ziel: "/elektroinstallationen/industrie-und-gewerbe/" } },
+        ],
+      }),
+      b("ablaufBaustein", {
+        anker: "ablauf",
+        titel: "Geplant. Ausgeführt. Gewartet.",
+        einleitung: "Drei Schritte, ein Ansprechpartner: Wir bleiben vom ersten Plan bis zum Störungsfall zuständig.",
+        schritte: [
+          { _key: "planen", titel: "Geplant", text: "Schemas und Pläne werden auf CAD gezeichnet und Ihnen als Farbdruck ausgehändigt. Planerische Weitsicht gehört seit Jahren zu unseren Stärken.", link: { titel: "Planung und Projektierung", ziel: "/elektroinstallationen/planung-und-projektierung/" } },
+          { _key: "ausfuehren", titel: "Ausgeführt", text: "Installationen für Neu- und Umbauten führen wir termin- und fachgerecht aus, vom Küchenumbau bis zum Neubauobjekt.", link: { titel: "Neu- und Umbauten", ziel: "/elektroinstallationen/neu-und-umbauten/" } },
+          { _key: "warten", titel: "Gewartet", text: "Selbst den seltensten Phänomenen kommen wir auf die Spur. Und im Notfall sind wir 7×24 Stunden an 365 Tagen erreichbar.", link: { titel: "Service und Unterhalt", ziel: "/elektroinstallationen/service-und-unterhalt/" } },
+        ],
+        knopf: { titel: "Alle Leistungen", ziel: "/elektroinstallationen/" },
+      }),
       b("zitatBaustein", {
         anker: "unternehmen",
         zitat: "Wir kümmern uns um alles, was mit Elektrizität und Telekommunikation zu tun hat.",
         inhalt: pt(`Zum Kerngeschäft der Altec Elektro GmbH gehören die Elektroplanung, die Projektierung sowie die Ausführung von Elektroinstallationen im Bereich Starkstrom und Schwachstrom für Neu- und Umbauten von Wohn-, Büro-, Industrie- und Gewerbebauten.
 
 Dank der zentralen Lage im Zürcher Seefeld sind unsere Elektriker für Sie in der Stadt Zürich sowie in den umliegenden Agglomerationen schnell vor Ort.`),
+        bild: bild("hero-zuerich", "Zürich am Abend: Limmatquai mit Blick auf die Altstadt"),
+        bildText: "Zürich, Limmatquai. Hedwigstrasse 12 liegt im Seefeld, Kreis 8.",
       }),
       b("notfallBaustein", { anker: "notfall", mitGebieten: true }),
       b("teamBaustein", { anker: "team", titel: "Team", einleitung: "Wir sind ein junges, dynamisches Team mit eingespielten und motivierten Mitarbeitern. Wir beschäftigen nur ausgewiesene Fachleute mit einer soliden Fachkompetenz und langjähriger Berufserfahrung." }),

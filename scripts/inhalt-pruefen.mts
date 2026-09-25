@@ -13,7 +13,9 @@ const json = async <T,>(p: string): Promise<T> => JSON.parse(await readFile(path
 const fehler: string[] = [];
 const warnungen: string[] = [];
 const bilder = await json<Record<string, unknown>>("bilder.json");
-const BAUSTEINE = new Set(["textBaustein", "leistungenBaustein", "zitatBaustein", "spaltenBaustein", "notfallBaustein", "teamBaustein", "partnerBaustein", "kontaktBaustein", "aufrufBaustein", "hinweisBaustein"]);
+const BAUSTEINE = new Set(["textBaustein", "leistungenBaustein", "zitatBaustein", "spaltenBaustein", "notfallBaustein", "teamBaustein", "partnerBaustein", "kontaktBaustein", "aufrufBaustein", "hinweisBaustein", "faktenBaustein", "zielgruppenBaustein", "ablaufBaustein"]);
+const FAKT_SYMBOLE = new Set(["siegel", "diplom", "uhr", "ort"]);
+const KENNZAHL = /\b\d{2,}\s*(%|Jahre|Projekte|Kunden|Mitarbeit)/i;
 const SYMBOLE = new Set(["plan", "service", "bau", "motor", "lampe", "steckdose", "antenne", "alarm"]);
 const linkErlaubt = (z: string) => /^\/(?!\/)/.test(z) || /^(https?:\/\/[^\s]+|mailto:[^\s]+|tel:\+?[\d\s()-]+)$/.test(z);
 const kennung = /^[a-z0-9-]+$/;
@@ -117,7 +119,7 @@ for (const f of seitenDateien) {
   const hero = s.hero as Roh | undefined;
   if (hero) {
     if (!hero.titel) fehler.push(`${ort}: hero.titel fehlt`);
-    if (!["bildband", "kompakt"].includes(hero.variante as string)) fehler.push(`${ort}: hero.variante ungültig`);
+    if (!["verteiler", "bildband", "kompakt"].includes(hero.variante as string)) fehler.push(`${ort}: hero.variante ungültig`);
     bildPruefen(hero.bild as never, `${ort} hero`);
     for (const k of ["knopf", "zweiterKnopf"]) linkSammeln((hero[k] as { ziel?: string } | undefined)?.ziel, `${ort} hero`);
     textPruefen(hero.titel, `${ort} hero`); textPruefen(hero.text, `${ort} hero`);
@@ -138,6 +140,9 @@ for (const f of seitenDateien) {
     if (b._type === "hinweisBaustein" && !["info", "wichtig"].includes(b.art as string)) fehler.push(`${bort}: art ungültig`);
     if (b._type === "leistungenBaustein" && !["schiene", "raster"].includes(b.darstellung as string)) fehler.push(`${bort}: darstellung ungültig`);
     if (b._type === "aufrufBaustein") { if (!b.knopf) fehler.push(`${bort}: knopf fehlt`); for (const k of ["knopf", "zweiterKnopf"]) linkSammeln((b[k] as { ziel?: string } | undefined)?.ziel, bort); }
+    if (b._type === "faktenBaustein") { const fk = new Set<string>(); for (const f of (b.fakten as Roh[]) ?? []) { if (!f._key || fk.has(f._key as string)) fehler.push(`${bort}: Fakt-_key fehlt/doppelt`); fk.add(f._key as string); if (!f.titel || !f.text) fehler.push(`${bort}: Fakt ohne Titel/Text`); if (!FAKT_SYMBOLE.has(f.symbol as string)) fehler.push(`${bort}: Fakt-Symbol «${f.symbol}» unbekannt`); if (KENNZAHL.test(`${f.titel} ${f.text}`)) fehler.push(`${bort}: Fakt sieht nach Kennzahl aus («${f.titel}»)`); } }
+    if (b._type === "zielgruppenBaustein") { const gk = new Set<string>(); for (const g of (b.gruppen as Roh[]) ?? []) { if (!g._key || gk.has(g._key as string)) fehler.push(`${bort}: Gruppen-_key fehlt/doppelt`); gk.add(g._key as string); if (!g.titel || !g.text) fehler.push(`${bort}: Gruppe ohne Titel/Text`); bildPruefen(g.bild as never, `${bort} Gruppe ${g.titel}`); linkSammeln((g.link as { ziel?: string } | undefined)?.ziel, `${bort} Gruppe ${g.titel}`); if (!g.link) fehler.push(`${bort}: Gruppe «${g.titel}» ohne Link`); } }
+    if (b._type === "ablaufBaustein") { const sk = new Set<string>(); for (const st of (b.schritte as Roh[]) ?? []) { if (!st._key || sk.has(st._key as string)) fehler.push(`${bort}: Schritt-_key fehlt/doppelt`); sk.add(st._key as string); if (!st.titel || !st.text) fehler.push(`${bort}: Schritt ohne Titel/Text`); linkSammeln((st.link as { ziel?: string } | undefined)?.ziel, `${bort} Schritt ${st.titel}`); } linkSammeln((b.knopf as { ziel?: string } | undefined)?.ziel, bort); }
   }
 }
 const bekannt = new Set<string>(["/", ...[...slugs].filter((s) => s !== "start").map((s) => `/${s}/`), ...[...lslugs].map((s) => `/elektroinstallationen/${s}/`)]);

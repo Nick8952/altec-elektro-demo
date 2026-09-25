@@ -112,7 +112,8 @@ export const seiteTyp = defineType({
     defineField({
       name: "hero", title: "Seitenanfang", type: "object", group: "kopf",
       fields: [
-        defineField({ name: "variante", title: "Darstellung", type: "string", options: { list: [{ title: "Bildband (Startseite)", value: "bildband" }, { title: "Kompakt", value: "kompakt" }], layout: "radio" }, initialValue: "kompakt", validation: (r) => r.required() }),
+        defineField({ name: "variante", title: "Darstellung", type: "string", options: { list: [{ title: "Verteiler (Startseite: Titel + Direkteinstieg zu allen Leistungen)", value: "verteiler" }, { title: "Bildband", value: "bildband" }, { title: "Kompakt", value: "kompakt" }], layout: "radio" }, initialValue: "kompakt", validation: (r) => r.required() }),
+        defineField({ name: "panelTitel", title: "Titel des Direkteinstieg-Panels (nur Verteiler)", type: "string" }),
         defineField({ name: "titel", title: "Überschrift", type: "string", validation: (r) => r.required().max(90) }),
         defineField({ name: "text", title: "Einleitung", type: "text", rows: 3, validation: (r) => r.max(400) }),
         defineField({ name: "knopf", title: "Knopf", type: "link" }),

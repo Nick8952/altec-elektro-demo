@@ -127,6 +127,13 @@ Zweiter Deploy (Workflow-Lauf 36134404438, alle Jobs grün): Formular ohne `acti
 Lighthouse mobil /kontakt/ danach: Performance 100, Accessibility 100, Best Practices 100, SEO 63 (noindex), LCP 1.6 s.
 Funktionsprüfungen gegen die Live-URL nach dem zweiten Deploy: 40/40.
 
+## 8a. Umbau der Startseite (25.09.2026, «zum Erkunden führen»)
+
+Neue Hero-Variante «Verteiler» (Direkteinstieg zu allen acht Leistungen), Faktenleiste, «Für Wohnung, Büro und Betrieb», Ablauf
+«Geplant. Ausgeführt. Gewartet.», Leitsatz mit Standortbild. Prüfungen nach dem Umbau: Inhalte (38 interne Links), Lint, Typen, Export-Prüfung
+grün; DOM-Audit 68/68 ohne Befund; Funktionsprüfungen 40/40. Hinweis: zwei Audit-Läufe brachen während paralleler Build-/Codex-Last mit
+Navigations-Timeouts ab (kein Befund an der Website); der Lauf auf der unbelasteten Maschine war vollständig.
+
 ## 9. Nicht durchführbare Prüfungen
 
 - Echte Geräte (iOS Safari, Android Chrome), Screenreader (VoiceOver/NVDA): nicht verfügbar in dieser Umgebung.

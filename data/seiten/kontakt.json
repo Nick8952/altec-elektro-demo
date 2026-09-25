@@ -18,14 +18,14 @@
  "bausteine": [
   {
    "_type": "kontaktBaustein",
-   "_key": "bsu",
+   "_key": "bsw",
    "anker": "kontakt",
    "mitFormular": true,
    "mitOeffnungszeiten": true
   },
   {
    "_type": "notfallBaustein",
-   "_key": "bsv",
+   "_key": "bsx",
    "anker": "notfall",
    "mitGebieten": false,
    "kompakt": true

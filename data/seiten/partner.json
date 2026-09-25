@@ -18,22 +18,22 @@
  "bausteine": [
   {
    "_type": "partnerBaustein",
-   "_key": "bsq",
+   "_key": "bss",
    "anker": "partner"
   },
   {
    "_type": "hinweisBaustein",
-   "_key": "bst",
+   "_key": "bsv",
    "art": "info",
    "inhalt": [
     {
      "_type": "block",
-     "_key": "br",
+     "_key": "bt",
      "style": "normal",
      "children": [
       {
        "_type": "span",
-       "_key": "ss",
+       "_key": "su",
        "text": "Die Logos stammen von der bisherigen Website. Verlinkt sind nur die Partner, die dort ebenfalls verlinkt waren (Komma3, ATC Treuhand). Die übrigen Partner-Websites können nach Rücksprache ergänzt werden.",
        "marks": []
       }

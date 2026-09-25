@@ -39,7 +39,10 @@ const BAUSTEINE = `bausteine[] {
   _key, _type, "anker": anker.current, titel,
   _type == "textBaustein" => { inhalt, bild ${BILD_PROJEKTION}, bildPosition, breite },
   _type == "leistungenBaustein" => { einleitung, darstellung, "leistungen": *[_type == "leistung"] | order(reihenfolge asc) ${LEISTUNG} },
-  _type == "zitatBaustein" => { zitat, inhalt },
+  _type == "zitatBaustein" => { zitat, inhalt, bild ${BILD_PROJEKTION}, bildText },
+  _type == "faktenBaustein" => { fakten[] { _key, titel, text, symbol } },
+  _type == "zielgruppenBaustein" => { einleitung, gruppen[] { _key, titel, text, bild ${BILD_PROJEKTION}, link ${LINK} } },
+  _type == "ablaufBaustein" => { einleitung, schritte[] { _key, titel, text, link ${LINK} }, knopf ${LINK} },
   _type == "spaltenBaustein" => { einleitung, spalten[] { _key, titel, inhalt } },
   _type == "notfallBaustein" => { einleitung, mitGebieten, kompakt },
   _type == "teamBaustein" => { einleitung, "team": *[_type == "teammitglied"] | order(reihenfolge asc) ${TEAM} },
@@ -61,7 +64,7 @@ const TEXTE_QUERY = defineQuery(`*[_type == "texte"][0] {
 }`);
 const SEITE_QUERY = defineQuery(`*[_type == "seite" && slug.current == $slug][0] {
   "id": _id, "slug": slug.current, titel, art, teaser, seoTitel, seoBeschreibung, alteUrls, stand, quelle,
-  hero { titel, text, knopf ${LINK}, zweiterKnopf ${LINK}, bild ${BILD_PROJEKTION}, variante },
+  hero { titel, text, knopf ${LINK}, zweiterKnopf ${LINK}, bild ${BILD_PROJEKTION}, variante, panelTitel, "leistungen": select(variante == "verteiler" => *[_type == "leistung"] | order(reihenfolge asc) ${LEISTUNG}, null) },
   ${BAUSTEINE}
 }`);
 
@@ -77,7 +80,10 @@ function bausteinAufbereiten(b: Roh): Baustein {
   switch (b._type) {
     case "textBaustein": return mk({ inhalt: liste(b.inhalt), bild: bildAus(b.bild) });
     case "leistungenBaustein": return mk({ darstellung: b.darstellung ?? "schiene", leistungen: sortiert(liste<Roh>(b.leistungen).map(leistungAufbereiten)) });
-    case "zitatBaustein": return mk({ inhalt: b.inhalt ? liste(b.inhalt) : undefined });
+    case "zitatBaustein": return mk({ inhalt: b.inhalt ? liste(b.inhalt) : undefined, bild: bildAus(b.bild) });
+    case "faktenBaustein": return mk({ fakten: liste(b.fakten) });
+    case "zielgruppenBaustein": return mk({ gruppen: liste<Roh>(b.gruppen).map((g) => ({ ...(g as object), bild: bildAus(g.bild) })) });
+    case "ablaufBaustein": return mk({ schritte: liste(b.schritte) });
     case "spaltenBaustein": return mk({ spalten: liste<Roh>(b.spalten).map((s) => ({ ...(s as object), inhalt: liste(s.inhalt) })) });
     case "notfallBaustein": return mk({ mitGebieten: b.mitGebieten !== false, kompakt: b.kompakt === true });
     case "teamBaustein": return mk({ team: sortiert(liste<Teammitglied>(b.team)) });
@@ -119,7 +125,7 @@ export const sanityQuelle: Inhaltsquelle = {
     const s = await abfrage<Roh | null>(SEITE_QUERY, { slug });
     if (!s) return null;
     const hero = s.hero as Roh | undefined;
-    return { ...(s as object), alteUrls: liste(s.alteUrls), hero: hero ? { ...(hero as object), variante: hero.variante ?? "kompakt", bild: bildAus(hero.bild) } : undefined, bausteine: liste<Roh>(s.bausteine).map(bausteinAufbereiten) } as Seite;
+    return { ...(s as object), alteUrls: liste(s.alteUrls), hero: hero ? { ...(hero as object), variante: hero.variante ?? "kompakt", bild: bildAus(hero.bild), leistungen: hero.leistungen ? sortiert(liste<Roh>(hero.leistungen).map(leistungAufbereiten)) : undefined } : undefined, bausteine: liste<Roh>(s.bausteine).map(bausteinAufbereiten) } as Seite;
   },
   async getAlleSeiten() {
     return abfrage<SeitenTeaser[]>(`*[_type == "seite" && defined(slug.current)] | order(slug.current asc) ${TEASER}`);

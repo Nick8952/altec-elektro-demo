@@ -65,6 +65,9 @@ async function bausteinUmwandeln(b: Roh) {
   for (const f of ["knopf", "zweiterKnopf"]) if (f in b) k[f] = link(b[f]);
   if ("bild" in b) k.bild = await bild(b.bild as BildRef | undefined);
   if (b._type === "spaltenBaustein") k.spalten = mitKeys(b.spalten, "spalte", "spalte");
+  if (b._type === "faktenBaustein") k.fakten = mitKeys(b.fakten, "fakt", "fakt");
+  if (b._type === "ablaufBaustein") k.schritte = mitKeys(b.schritte, "schritt", "schritt").map((s) => ({ ...s, link: link(s.link) }));
+  if (b._type === "zielgruppenBaustein") k.gruppen = await Promise.all(mitKeys(b.gruppen, "gruppe", "zielgruppe").map(async (g) => ({ ...g, link: link(g.link), bild: await bild(g.bild as BildRef | undefined) })));
   return k;
 }
 

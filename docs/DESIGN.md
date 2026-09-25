@@ -44,15 +44,23 @@ Nebenangaben `.klein` 0.9375 rem. Kein `tabular-nums` (verbreitert in dieser Sch
 Container 76 rem, Seitenränder 16/24/32 px, Abschnitte `py-14/20/24`. Eckenradien: 4 px Bedienelemente/Eingaben, 8 px Flächen/Karten.
 Karten nur, wo sie Hierarchie tragen (Notfall-Block, Formular, Aufruf); sonst Linien und Weissraum. Maximal ein Layout-Muster pro Seite doppelt.
 
-## Seitenrhythmus Startseite
+## Seitenrhythmus Startseite (Fassung vom 25.09.2026, «zum Erkunden führen»)
 
-1. Hero «Bildband»: Titel oben links, Untertitel ≤ 20 Wörter, zwei Knöpfe, darunter das Zürich-Panorama über die volle Breite, roter Abgang.
-2. Leistungen an der Sammelschiene (2 × 4).
-3. Leitsatz auf grauer Fläche, darunter die zwei Leitsätze der Quelle in zwei Spalten.
-4. Notfall-Block (rote Leitschiene, zwei grosse Nummern, Quartiere/Gemeinden).
-5. Team als Liste mit Linien.
-6. Partner-Logowand (nur Logos).
-7. Kontakt (Adresse/Zeiten links, Verweis aufs Formular rechts).
+Ziel des ersten Bildschirms: Besucher sehen sofort, wohin es weitergeht, und verlassen die Seite nicht nach dem Hero.
+
+1. Hero «Verteiler»: links Titel (2 Zeilen), Untertitel ≤ 24 Wörter, zwei Knöpfe; rechts das Panel «Direkteinstieg» mit allen acht
+   Leistungen an der roten Schiene (Symbole, direkt verlinkt), Link «Alle Leistungen». Mobil steht das Panel direkt unter den Knöpfen.
+2. Faktenleiste: vier belegte Merkmale (Konzession, eidg. dipl. Installateur, 7×24-Notfall, Seefeld), keine Kennzahlen.
+3. «Für Wohnung, Büro und Betrieb»: drei Bildkacheln, jede führt in die passende Leistung.
+4. «Geplant. Ausgeführt. Gewartet.»: dreistufiger Ablauf mit echter Reihenfolge (deshalb nummeriert), je ein Link, Knopf «Alle Leistungen».
+5. Leitsatz mit den zwei Leitsätzen der Quelle, rechts das Zürich-Panorama mit Standortzeile.
+6. Notfall-Block (rote Leitschiene, zwei grosse Nummern, Quartiere/Gemeinden).
+7. Team als Liste mit Linien.
+8. Partner-Logowand (nur Logos).
+9. Kontakt (Adresse/Zeiten links, Verweis aufs Formular rechts).
+
+Die Sammelschiene mit Kurztexten (`leistungenBaustein`, Darstellung «schiene») bleibt als Baustein verfügbar; die Übersichtsseite nutzt
+die Darstellung «raster» mit Bildern.
 
 ## Bewegung
 
