@@ -1,0 +1,34 @@
+{
+ "id": "seite-kontakt",
+ "slug": "kontakt",
+ "titel": "Kontakt",
+ "art": "seite",
+ "teaser": "Telefon, E-Mail, Adresse, Büroöffnungszeiten und Projektanfrage.",
+ "seoBeschreibung": "Kontakt: Altec Elektro GmbH, Hedwigstrasse 12, 8032 Zürich. Telefon +41 44 840 07 70, info@altec-elektro.ch. Büro Montag bis Freitag 08.00–12.00 und 13.00–17.00 Uhr.",
+ "alteUrls": [
+  "/kontakt",
+  "/kontakt-b"
+ ],
+ "quelle": "https://www.altec-elektro.ch/kontakt",
+ "hero": {
+  "variante": "kompakt",
+  "titel": "Kontakt",
+  "text": "Unser Sekretariat ist von Montag bis Freitag von 08.00 bis 12.00 Uhr und von 13.00 bis 17.00 Uhr geöffnet. Rufen Sie uns an oder schreiben Sie uns eine E-Mail. In Notfällen erreichen Sie uns selbstverständlich auch am Abend und am Wochenende."
+ },
+ "bausteine": [
+  {
+   "_type": "kontaktBaustein",
+   "_key": "bsu",
+   "anker": "kontakt",
+   "mitFormular": true,
+   "mitOeffnungszeiten": true
+  },
+  {
+   "_type": "notfallBaustein",
+   "_key": "bsv",
+   "anker": "notfall",
+   "mitGebieten": false,
+   "kompakt": true
+  }
+ ]
+}

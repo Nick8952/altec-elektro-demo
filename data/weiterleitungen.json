@@ -1,0 +1,17 @@
+[
+  { "von": "/7x24-stunden-notfall-pikett", "nach": "/notfalldienst/" },
+  { "von": "/7x24-stunden-notfall-pikett-b", "nach": "/notfalldienst/" },
+  { "von": "/dienstleistungen-b", "nach": "/elektroinstallationen/" },
+  { "von": "/unsere-partner", "nach": "/partner/" },
+  { "von": "/unsere-partner-b", "nach": "/partner/" },
+  { "von": "/team-b", "nach": "/team/" },
+  { "von": "/kontakt-b", "nach": "/kontakt/" },
+  { "von": "/elektroinstallationen/42-planung-und-projektierung", "nach": "/elektroinstallationen/planung-und-projektierung/" },
+  { "von": "/elektroinstallationen/25-service-und-unterhalt", "nach": "/elektroinstallationen/service-und-unterhalt/" },
+  { "von": "/elektroinstallationen/28-neu-und-umbauten", "nach": "/elektroinstallationen/neu-und-umbauten/" },
+  { "von": "/elektroinstallationen/26-industrie-und-gewerbe", "nach": "/elektroinstallationen/industrie-und-gewerbe/" },
+  { "von": "/elektroinstallationen/27-beleuchtung", "nach": "/elektroinstallationen/beleuchtung/" },
+  { "von": "/elektroinstallationen/32-apparateverkauf", "nach": "/elektroinstallationen/apparateverkauf-und-einbau/" },
+  { "von": "/elektroinstallationen/30-telekommunikation", "nach": "/elektroinstallationen/telekommunikation/" },
+  { "von": "/elektroinstallationen/31-sicherheit", "nach": "/elektroinstallationen/sicherheit/" }
+]

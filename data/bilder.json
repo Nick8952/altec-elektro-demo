@@ -1,0 +1,234 @@
+{
+  "hero-zuerich": {
+    "id": "hero-zuerich",
+    "original": "assets/originale/zuerich.jpg",
+    "breite": 1241,
+    "hoehe": 450,
+    "quellen": [
+      {
+        "breite": 480,
+        "url": "/bilder/hero-zuerich-480-648d7dd1.webp"
+      },
+      {
+        "breite": 960,
+        "url": "/bilder/hero-zuerich-960-e519ab81.webp"
+      },
+      {
+        "breite": 1241,
+        "url": "/bilder/hero-zuerich-1241-0f71a177.webp"
+      }
+    ]
+  },
+  "leistung-planung": {
+    "id": "leistung-planung",
+    "original": "assets/originale/planungundprojektierung.jpg",
+    "breite": 590,
+    "hoehe": 246,
+    "quellen": [
+      {
+        "breite": 480,
+        "url": "/bilder/leistung-planung-480-c803a313.webp"
+      },
+      {
+        "breite": 590,
+        "url": "/bilder/leistung-planung-590-b9bc0261.webp"
+      }
+    ]
+  },
+  "leistung-service": {
+    "id": "leistung-service",
+    "original": "assets/originale/servieundunterhalt.jpg",
+    "breite": 590,
+    "hoehe": 246,
+    "quellen": [
+      {
+        "breite": 480,
+        "url": "/bilder/leistung-service-480-e2913a96.webp"
+      },
+      {
+        "breite": 590,
+        "url": "/bilder/leistung-service-590-4cda2767.webp"
+      }
+    ]
+  },
+  "leistung-neubau": {
+    "id": "leistung-neubau",
+    "original": "assets/originale/neuundumbauten.jpg",
+    "breite": 590,
+    "hoehe": 246,
+    "quellen": [
+      {
+        "breite": 480,
+        "url": "/bilder/leistung-neubau-480-7fbbef8f.webp"
+      },
+      {
+        "breite": 590,
+        "url": "/bilder/leistung-neubau-590-94d1c073.webp"
+      }
+    ]
+  },
+  "leistung-industrie": {
+    "id": "leistung-industrie",
+    "original": "assets/originale/industrieundgewerbe.jpg",
+    "breite": 590,
+    "hoehe": 246,
+    "quellen": [
+      {
+        "breite": 480,
+        "url": "/bilder/leistung-industrie-480-0a6234fa.webp"
+      },
+      {
+        "breite": 590,
+        "url": "/bilder/leistung-industrie-590-6830a877.webp"
+      }
+    ]
+  },
+  "leistung-beleuchtung": {
+    "id": "leistung-beleuchtung",
+    "original": "assets/originale/beleuchtung.jpg",
+    "breite": 590,
+    "hoehe": 246,
+    "quellen": [
+      {
+        "breite": 480,
+        "url": "/bilder/leistung-beleuchtung-480-c6fcc0f2.webp"
+      },
+      {
+        "breite": 590,
+        "url": "/bilder/leistung-beleuchtung-590-a7aa25c2.webp"
+      }
+    ]
+  },
+  "leistung-apparate": {
+    "id": "leistung-apparate",
+    "original": "assets/originale/apparateverkauf.jpg",
+    "breite": 590,
+    "hoehe": 246,
+    "quellen": [
+      {
+        "breite": 480,
+        "url": "/bilder/leistung-apparate-480-1583c784.webp"
+      },
+      {
+        "breite": 590,
+        "url": "/bilder/leistung-apparate-590-e1065894.webp"
+      }
+    ]
+  },
+  "leistung-telekom": {
+    "id": "leistung-telekom",
+    "original": "assets/originale/telekommunikation.jpeg",
+    "breite": 590,
+    "hoehe": 246,
+    "quellen": [
+      {
+        "breite": 480,
+        "url": "/bilder/leistung-telekom-480-d29b8171.webp"
+      },
+      {
+        "breite": 590,
+        "url": "/bilder/leistung-telekom-590-ab9c527f.webp"
+      }
+    ]
+  },
+  "leistung-sicherheit": {
+    "id": "leistung-sicherheit",
+    "original": "assets/originale/sicherheit.jpeg",
+    "breite": 590,
+    "hoehe": 246,
+    "quellen": [
+      {
+        "breite": 480,
+        "url": "/bilder/leistung-sicherheit-480-a46585a9.webp"
+      },
+      {
+        "breite": 590,
+        "url": "/bilder/leistung-sicherheit-590-c9706e96.webp"
+      }
+    ]
+  },
+  "partner-protectas": {
+    "id": "partner-protectas",
+    "original": "assets/originale/protectas.jpg",
+    "breite": 200,
+    "hoehe": 52,
+    "quellen": [
+      {
+        "breite": 200,
+        "url": "/bilder/partner-protectas-200-8e670ff0.webp"
+      }
+    ]
+  },
+  "partner-otto-fischer": {
+    "id": "partner-otto-fischer",
+    "original": "assets/originale/otto-fischer.jpg",
+    "breite": 200,
+    "hoehe": 52,
+    "quellen": [
+      {
+        "breite": 200,
+        "url": "/bilder/partner-otto-fischer-200-9b61886c.webp"
+      }
+    ]
+  },
+  "partner-komma3": {
+    "id": "partner-komma3",
+    "original": "assets/originale/komma3-multimedia.jpg",
+    "breite": 250,
+    "hoehe": 65,
+    "quellen": [
+      {
+        "breite": 250,
+        "url": "/bilder/partner-komma3-250-d9ccee0f.webp"
+      }
+    ]
+  },
+  "partner-heinz-von-heiden": {
+    "id": "partner-heinz-von-heiden",
+    "original": "assets/originale/heinz-von-heiden.jpg",
+    "breite": 200,
+    "hoehe": 52,
+    "quellen": [
+      {
+        "breite": 200,
+        "url": "/bilder/partner-heinz-von-heiden-200-9c785793.webp"
+      }
+    ]
+  },
+  "partner-atc-treuhand": {
+    "id": "partner-atc-treuhand",
+    "original": "assets/originale/atc-treuhand250.jpg",
+    "breite": 250,
+    "hoehe": 65,
+    "quellen": [
+      {
+        "breite": 250,
+        "url": "/bilder/partner-atc-treuhand-250-e567a578.webp"
+      }
+    ]
+  },
+  "partner-winterhalder-fenner": {
+    "id": "partner-winterhalder-fenner",
+    "original": "assets/originale/winterhalder-fenner.jpg",
+    "breite": 200,
+    "hoehe": 52,
+    "quellen": [
+      {
+        "breite": 200,
+        "url": "/bilder/partner-winterhalder-fenner-200-2425978f.webp"
+      }
+    ]
+  },
+  "logo-original": {
+    "id": "logo-original",
+    "original": "assets/originale/Altec_logo.png",
+    "breite": 186,
+    "hoehe": 98,
+    "quellen": [
+      {
+        "breite": 186,
+        "url": "/bilder/logo-original-186-4ccda9e3.png"
+      }
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+ "id": "seite-elektroinstallationen",
+ "slug": "elektroinstallationen",
+ "titel": "Elektroinstallationen",
+ "art": "seite",
+ "teaser": "Stark- und Schwachstrom: acht Leistungsbereiche, von der Planung bis zum Notfalldienst.",
+ "seoBeschreibung": "Elektroinstallationen in Zürich: Planung, Service und Unterhalt, Neu- und Umbauten, Industrie und Gewerbe, Beleuchtung, Apparate, Telekommunikation, Sicherheit.",
+ "alteUrls": [
+  "/elektroinstallationen",
+  "/dienstleistungen-b"
+ ],
+ "quelle": "https://www.altec-elektro.ch/elektroinstallationen",
+ "hero": {
+  "variante": "kompakt",
+  "titel": "Elektroinstallationen",
+  "text": "Stark- und Schwachstrom: Planung und Projektierung, Service und Unterhalt, Beleuchtung, Telekommunikation, Multimedia, Kabelfernseh-Systeme und SAT-Anlagen."
+ },
+ "bausteine": [
+  {
+   "_type": "leistungenBaustein",
+   "_key": "bsb",
+   "anker": "leistungen",
+   "darstellung": "raster"
+  },
+  {
+   "_type": "aufrufBaustein",
+   "_key": "bsc",
+   "titel": "Nicht sicher, welcher Bereich passt?",
+   "text": "Beschreiben Sie uns Ihr Vorhaben. Wir sagen Ihnen, was nötig ist.",
+   "knopf": {
+    "titel": "Projekt anfragen",
+    "ziel": "/kontakt/"
+   },
+   "zweiterKnopf": {
+    "titel": "Notfalldienst anrufen",
+    "ziel": "tel:+41448400770"
+   }
+  }
+ ]
+}

@@ -1,0 +1,291 @@
+{
+ "id": "seite-impressum",
+ "slug": "impressum",
+ "titel": "Impressum",
+ "art": "rechtliches",
+ "stand": "25. September 2026",
+ "seoBeschreibung": "Impressum der Verkaufs-Demo für die Altec Elektro GmbH: Betreiber der Demo, dargestelltes Unternehmen, Bild- und Markenrechte, Haftung.",
+ "alteUrls": [],
+ "hero": {
+  "variante": "kompakt",
+  "titel": "Impressum"
+ },
+ "bausteine": [
+  {
+   "_type": "hinweisBaustein",
+   "_key": "bs5",
+   "inhalt": [
+    {
+     "_type": "block",
+     "_key": "b1",
+     "style": "normal",
+     "children": [
+      {
+       "_type": "span",
+       "_key": "s2",
+       "text": "Diese Website ist ein ",
+       "marks": []
+      },
+      {
+       "_type": "span",
+       "_key": "s3",
+       "text": "unverbindlicher Gestaltungsvorschlag (Verkaufs-Demo)",
+       "marks": [
+        "strong"
+       ]
+      },
+      {
+       "_type": "span",
+       "_key": "s4",
+       "text": " und nicht die offizielle Website der Altec Elektro GmbH. Das Unternehmen hat diese Demo nicht in Auftrag gegeben und ist für sie nicht verantwortlich.",
+       "marks": []
+      }
+     ],
+     "markDefs": []
+    }
+   ],
+   "art": "wichtig"
+  },
+  {
+   "_type": "textBaustein",
+   "_key": "bs13",
+   "inhalt": [
+    {
+     "_type": "block",
+     "_key": "b6",
+     "style": "h2",
+     "children": [
+      {
+       "_type": "span",
+       "_key": "s7",
+       "text": "Betreiber dieser Demo-Website",
+       "marks": []
+      }
+     ],
+     "markDefs": []
+    },
+    {
+     "_type": "block",
+     "_key": "b8",
+     "style": "normal",
+     "children": [
+      {
+       "_type": "span",
+       "_key": "s9",
+       "text": "Nick Holzbecher",
+       "marks": [
+        "strong"
+       ]
+      },
+      {
+       "_type": "span",
+       "_key": "sa",
+       "text": "\nE-Mail: ",
+       "marks": []
+      },
+      {
+       "_type": "span",
+       "_key": "sc",
+       "text": "holzbechernick@gmail.com",
+       "marks": [
+        "lb"
+       ]
+      }
+     ],
+     "markDefs": [
+      {
+       "_type": "link",
+       "_key": "lb",
+       "href": "mailto:holzbechernick@gmail.com",
+       "extern": false
+      }
+     ]
+    },
+    {
+     "_type": "block",
+     "_key": "bd",
+     "style": "normal",
+     "children": [
+      {
+       "_type": "span",
+       "_key": "se",
+       "text": "Für Inhalt und Betrieb dieser Demo ist ausschliesslich der oben genannte Betreiber verantwortlich. Die Demo wird auf GitHub Pages (GitHub, Inc., USA) veröffentlicht. Die Postanschrift des Betreibers wird auf Anfrage mitgeteilt und vor einer allfälligen Übergabe ergänzt.",
+       "marks": []
+      }
+     ],
+     "markDefs": []
+    },
+    {
+     "_type": "block",
+     "_key": "bf",
+     "style": "h2",
+     "children": [
+      {
+       "_type": "span",
+       "_key": "sg",
+       "text": "Dargestelltes Unternehmen",
+       "marks": []
+      }
+     ],
+     "markDefs": []
+    },
+    {
+     "_type": "block",
+     "_key": "bh",
+     "style": "normal",
+     "children": [
+      {
+       "_type": "span",
+       "_key": "si",
+       "text": "Altec Elektro GmbH",
+       "marks": [
+        "strong"
+       ]
+      },
+      {
+       "_type": "span",
+       "_key": "sj",
+       "text": "\nHedwigstrasse 12\n8032 Zürich",
+       "marks": []
+      }
+     ],
+     "markDefs": []
+    },
+    {
+     "_type": "block",
+     "_key": "bk",
+     "style": "normal",
+     "children": [
+      {
+       "_type": "span",
+       "_key": "sl",
+       "text": "Telefon: ",
+       "marks": []
+      },
+      {
+       "_type": "span",
+       "_key": "sn",
+       "text": "+41 44 840 07 70",
+       "marks": [
+        "lm"
+       ]
+      },
+      {
+       "_type": "span",
+       "_key": "so",
+       "text": "\nFax: +41 44 840 07 71\nE-Mail: ",
+       "marks": []
+      },
+      {
+       "_type": "span",
+       "_key": "sq",
+       "text": "info@altec-elektro.ch",
+       "marks": [
+        "lp"
+       ]
+      }
+     ],
+     "markDefs": [
+      {
+       "_type": "link",
+       "_key": "lm",
+       "href": "tel:+41448400770",
+       "extern": false
+      },
+      {
+       "_type": "link",
+       "_key": "lp",
+       "href": "mailto:info@altec-elektro.ch",
+       "extern": false
+      }
+     ]
+    },
+    {
+     "_type": "block",
+     "_key": "br",
+     "style": "normal",
+     "children": [
+      {
+       "_type": "span",
+       "_key": "ss",
+       "text": "Geschäftsführer laut bisheriger Website: Alek Mjekici. Fachkundiger Leiter: Ulrich Küttel.",
+       "marks": []
+      }
+     ],
+     "markDefs": []
+    },
+    {
+     "_type": "block",
+     "_key": "bt",
+     "style": "normal",
+     "children": [
+      {
+       "_type": "span",
+       "_key": "su",
+       "text": "Die Angaben zum dargestellten Unternehmen stammen von der bisherigen Website altec-elektro.ch (Stand 25. September 2026). Diese Website enthält kein Impressum; Handelsregister-Angaben (UID, Sitz, Rechtsform im Detail), die verantwortliche Person für den Inhalt und eine Datenschutz-Kontaktstelle sind vor einem Go-Live durch das Unternehmen zu ergänzen und zu bestätigen. Nach Art. 3 Abs. 1 Bst. s UWG sind vollständige Angaben zu Identität und Kontaktadresse (einschliesslich E-Mail) verpflichtend, sobald Waren, Werke oder Leistungen im elektronischen Geschäftsverkehr angeboten werden; diese Website bietet keine Online-Bestellung an.",
+       "marks": []
+      }
+     ],
+     "markDefs": []
+    },
+    {
+     "_type": "block",
+     "_key": "bv",
+     "style": "h2",
+     "children": [
+      {
+       "_type": "span",
+       "_key": "sw",
+       "text": "Inhalte, Bilder, Marken",
+       "marks": []
+      }
+     ],
+     "markDefs": []
+    },
+    {
+     "_type": "block",
+     "_key": "bx",
+     "style": "normal",
+     "children": [
+      {
+       "_type": "span",
+       "_key": "sy",
+       "text": "Texte, Fotos und Partnerlogos wurden von der bisherigen Website altec-elektro.ch übernommen (Herkunftsnachweis in der Projektdokumentation). Die Rechte daran liegen bei der Altec Elektro GmbH bzw. bei den jeweiligen Urhebern und Partnern; die Verwendung in dieser Demo dient ausschliesslich der Präsentation eines Gestaltungsvorschlags. Das Logo ist eine Vektor-Nachbildung der bestehenden Bildmarke. Marken Dritter (Gira, KNX, Protectas, Otto Fischer, Komma3, Heinz von Heiden, ATC Treuhand, Winterhalder Fenner) gehören ihren jeweiligen Inhabern.",
+       "marks": []
+      }
+     ],
+     "markDefs": []
+    },
+    {
+     "_type": "block",
+     "_key": "bz",
+     "style": "h2",
+     "children": [
+      {
+       "_type": "span",
+       "_key": "s10",
+       "text": "Haftung",
+       "marks": []
+      }
+     ],
+     "markDefs": []
+    },
+    {
+     "_type": "block",
+     "_key": "b11",
+     "style": "normal",
+     "children": [
+      {
+       "_type": "span",
+       "_key": "s12",
+       "text": "Die Inhalte dieser Demo wurden mit Sorgfalt übernommen, sind aber bis zur Bestätigung durch das Unternehmen unverbindlich. Für die Inhalte externer Links (Partner-Websites, Google Maps) sind ausschliesslich deren Betreiber verantwortlich. Es besteht kein Anspruch auf Vollständigkeit, Richtigkeit oder Aktualität.",
+       "marks": []
+      }
+     ],
+     "markDefs": []
+    }
+   ],
+   "breite": "schmal"
+  }
+ ]
+}

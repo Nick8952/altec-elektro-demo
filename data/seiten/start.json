@@ -1,0 +1,103 @@
+{
+ "id": "seite-start",
+ "slug": "start",
+ "titel": "Elektroinstallationen in Zürich",
+ "art": "seite",
+ "seoTitel": "Elektroinstallationen und Telekommunikation, Zürich Seefeld",
+ "seoBeschreibung": "Altec Elektro GmbH, Zürich Seefeld: Elektroplanung und Elektroinstallationen für Stark- und Schwachstrom, Telekommunikation, Service und 7×24-Stunden-Notfalldienst.",
+ "alteUrls": [
+  "/"
+ ],
+ "quelle": "https://www.altec-elektro.ch/",
+ "hero": {
+  "variante": "bildband",
+  "titel": "Elektroinstallationen für Zürich. Geplant, ausgeführt, gewartet.",
+  "text": "Elektroplanung, Starkstrom und Schwachstrom für Wohn-, Büro-, Industrie- und Gewerbebauten, aus dem Zürcher Seefeld.",
+  "knopf": {
+   "titel": "Projekt anfragen",
+   "ziel": "/kontakt/"
+  },
+  "zweiterKnopf": {
+   "titel": "Notfalldienst anrufen",
+   "ziel": "tel:+41448400770"
+  },
+  "bild": {
+   "bild": "hero-zuerich",
+   "alt": "Zürich am Abend: Limmatquai mit Blick auf die Altstadt"
+  }
+ },
+ "bausteine": [
+  {
+   "_type": "leistungenBaustein",
+   "_key": "bs1",
+   "anker": "leistungen",
+   "titel": "Unsere Leistungen",
+   "darstellung": "schiene",
+   "einleitung": "Stark- und Schwachstrom: Planung und Projektierung, Service und Unterhalt, Beleuchtung, Telekommunikation, Multimedia, Kabelfernseh-Systeme und SAT-Anlagen."
+  },
+  {
+   "_type": "zitatBaustein",
+   "_key": "bs6",
+   "anker": "unternehmen",
+   "zitat": "Wir kümmern uns um alles, was mit Elektrizität und Telekommunikation zu tun hat.",
+   "inhalt": [
+    {
+     "_type": "block",
+     "_key": "b2",
+     "style": "normal",
+     "children": [
+      {
+       "_type": "span",
+       "_key": "s3",
+       "text": "Zum Kerngeschäft der Altec Elektro GmbH gehören die Elektroplanung, die Projektierung sowie die Ausführung von Elektroinstallationen im Bereich Starkstrom und Schwachstrom für Neu- und Umbauten von Wohn-, Büro-, Industrie- und Gewerbebauten.",
+       "marks": []
+      }
+     ],
+     "markDefs": []
+    },
+    {
+     "_type": "block",
+     "_key": "b4",
+     "style": "normal",
+     "children": [
+      {
+       "_type": "span",
+       "_key": "s5",
+       "text": "Dank der zentralen Lage im Zürcher Seefeld sind unsere Elektriker für Sie in der Stadt Zürich sowie in den umliegenden Agglomerationen schnell vor Ort.",
+       "marks": []
+      }
+     ],
+     "markDefs": []
+    }
+   ]
+  },
+  {
+   "_type": "notfallBaustein",
+   "_key": "bs7",
+   "anker": "notfall",
+   "mitGebieten": true
+  },
+  {
+   "_type": "teamBaustein",
+   "_key": "bs8",
+   "anker": "team",
+   "titel": "Team",
+   "einleitung": "Wir sind ein junges, dynamisches Team mit eingespielten und motivierten Mitarbeitern. Wir beschäftigen nur ausgewiesene Fachleute mit einer soliden Fachkompetenz und langjähriger Berufserfahrung."
+  },
+  {
+   "_type": "partnerBaustein",
+   "_key": "bs9",
+   "anker": "partner",
+   "titel": "Unsere Partner",
+   "einleitung": "Hohe Qualitätsansprüche erfordern gute und zuverlässige Partner. Gemeinsam sind wir stark!"
+  },
+  {
+   "_type": "kontaktBaustein",
+   "_key": "bsa",
+   "anker": "kontakt",
+   "titel": "Kontakt",
+   "mitFormular": false,
+   "mitOeffnungszeiten": true
+  }
+ ]
+}

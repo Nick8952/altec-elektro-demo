@@ -1,0 +1,103 @@
+{
+ "id": "seite-notfalldienst",
+ "slug": "notfalldienst",
+ "titel": "7×24-Stunden-Notfall/Pikett",
+ "art": "seite",
+ "teaser": "Notfalldienst an 365 Tagen im Jahr mit qualifizierten Elektroinstallateuren.",
+ "seoTitel": "7×24-Stunden-Notfall/Pikett, Elektriker Zürich",
+ "seoBeschreibung": "Notfall-Elektriker Zürich: 7×24-Stunden-Notfall-/Pikettservice an 365 Tagen. Notfallnummern 044 840 07 70 und 079 653 83 99. Schnell vor Ort in Zürich und Umgebung.",
+ "alteUrls": [
+  "/7x24-stunden-notfall-pikett",
+  "/7x24-stunden-notfall-pikett-b"
+ ],
+ "quelle": "https://www.altec-elektro.ch/7x24-stunden-notfall-pikett",
+ "hero": {
+  "variante": "kompakt",
+  "titel": "7×24-Stunden-Notfall/Pikett",
+  "text": "Wir bieten einen 7×24-Stunden-Notfall-/Pikettservice an 365 Tagen im Jahr und stellen Ihnen für den Notfalldienst nur qualifizierte Elektroinstallateure zur Verfügung. Auf Ihren Notfall-Elektriker ist Verlass!",
+  "knopf": {
+   "titel": "Notfalldienst anrufen",
+   "ziel": "tel:+41448400770"
+  }
+ },
+ "bausteine": [
+  {
+   "_type": "notfallBaustein",
+   "_key": "bsd",
+   "anker": "nummern",
+   "titel": "Rufen Sie uns über die Notfalldienst-Nummer an",
+   "einleitung": "Dank der zentralen Lage im Zürcher Seefeld können unsere Elektriker insbesondere in den Quartieren Riesbach, Mühlebach, Hottingen, Hirslanden und Fluntern schnell vor Ort sein. Aber auch in der Stadt Zürich sowie in den umliegenden Agglomerationen vom Kanton Zürich, wie Zollikon, Zollikerberg, Zumikon, Küssnacht, Erlenbach, Herrliberg.",
+   "mitGebieten": true
+  },
+  {
+   "_type": "textBaustein",
+   "_key": "bsk",
+   "inhalt": [
+    {
+     "_type": "block",
+     "_key": "be",
+     "style": "h2",
+     "children": [
+      {
+       "_type": "span",
+       "_key": "sf",
+       "text": "Wann Sie den Notfalldienst anrufen",
+       "marks": []
+      }
+     ],
+     "markDefs": []
+    },
+    {
+     "_type": "block",
+     "_key": "bg",
+     "style": "normal",
+     "children": [
+      {
+       "_type": "span",
+       "_key": "sh",
+       "text": "Ist es dunkel im Raum, oder ist die Heizung kalt? Können Sie mit dem Kochherdschalter das Wohnzimmerlicht regeln, oder klingelt das Telefon nicht mehr? Selbst den seltensten Phänomenen kommen wir auf die Spur. Wir sind für Sie schnell zur Stelle und finden die passende Lösung für Ihr Problem.",
+       "marks": []
+      }
+     ],
+     "markDefs": []
+    },
+    {
+     "_type": "block",
+     "_key": "bi",
+     "style": "normal",
+     "children": [
+      {
+       "_type": "span",
+       "_key": "sj",
+       "text": "Ausserhalb der Büroöffnungszeiten (Montag bis Freitag, 08.00–12.00 und 13.00–17.00 Uhr) erreichen Sie uns in Notfällen selbstverständlich auch am Abend und am Wochenende.",
+       "marks": []
+      }
+     ],
+     "markDefs": []
+    }
+   ],
+   "breite": "schmal"
+  },
+  {
+   "_type": "hinweisBaustein",
+   "_key": "bsn",
+   "art": "info",
+   "inhalt": [
+    {
+     "_type": "block",
+     "_key": "bl",
+     "style": "normal",
+     "children": [
+      {
+       "_type": "span",
+       "_key": "sm",
+       "text": "Die bisherige Website nennt keine Anfahrtszeiten und keine Notfalltarife. Diese Demo verspricht deshalb bewusst keine. Angaben dazu kann die Altec Elektro GmbH jederzeit ergänzen.",
+       "marks": []
+      }
+     ],
+     "markDefs": []
+    }
+   ]
+  }
+ ]
+}

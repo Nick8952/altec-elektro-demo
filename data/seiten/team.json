@@ -1,0 +1,41 @@
+{
+ "id": "seite-team",
+ "slug": "team",
+ "titel": "Team",
+ "art": "seite",
+ "teaser": "Wir über uns: Geschäftsführung, Finanzen/Marketing und fachkundige Leitung.",
+ "seoTitel": "Team, wir über uns",
+ "seoBeschreibung": "Das Team der Altec Elektro GmbH in Zürich: Alek Mjekici (Geschäftsführer), Adrian Mjeku (Leitung Finanzen/Marketing), Ulrich Küttel (Fachkundiger Leiter).",
+ "alteUrls": [
+  "/team",
+  "/team-b"
+ ],
+ "quelle": "https://www.altec-elektro.ch/team",
+ "hero": {
+  "variante": "kompakt",
+  "titel": "Team, wir über uns",
+  "text": "Wir sind ein junges, dynamisches Team mit eingespielten und motivierten Mitarbeitern. Wir beschäftigen nur ausgewiesene Fachleute mit einer soliden Fachkompetenz und langjähriger Berufserfahrung."
+ },
+ "bausteine": [
+  {
+   "_type": "teamBaustein",
+   "_key": "bso",
+   "anker": "team",
+   "einleitung": "Für die technische Aufsicht ist der eidgenössisch diplomierte Installateur zuständig."
+  },
+  {
+   "_type": "aufrufBaustein",
+   "_key": "bsp",
+   "titel": "Sie möchten mit uns arbeiten?",
+   "text": "Ob Projekt oder Störung: Rufen Sie an oder schreiben Sie uns.",
+   "knopf": {
+    "titel": "Projekt anfragen",
+    "ziel": "/kontakt/"
+   },
+   "zweiterKnopf": {
+    "titel": "044 840 07 70",
+    "ziel": "tel:+41448400770"
+   }
+  }
+ ]
+}

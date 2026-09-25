@@ -1,0 +1,131 @@
+{
+  "navigation": [
+    {
+      "_key": "nav-leistungen",
+      "titel": "Elektroinstallationen",
+      "ziel": "/elektroinstallationen/",
+      "kinder": [
+        { "titel": "Planung und Projektierung", "ziel": "/elektroinstallationen/planung-und-projektierung/" },
+        { "titel": "Service und Unterhalt", "ziel": "/elektroinstallationen/service-und-unterhalt/" },
+        { "titel": "Neu- und Umbauten", "ziel": "/elektroinstallationen/neu-und-umbauten/" },
+        { "titel": "Industrie und Gewerbe", "ziel": "/elektroinstallationen/industrie-und-gewerbe/" },
+        { "titel": "Beleuchtung", "ziel": "/elektroinstallationen/beleuchtung/" },
+        { "titel": "Apparateverkauf und Einbau", "ziel": "/elektroinstallationen/apparateverkauf-und-einbau/" },
+        { "titel": "Telekommunikation", "ziel": "/elektroinstallationen/telekommunikation/" },
+        { "titel": "Sicherheit", "ziel": "/elektroinstallationen/sicherheit/" }
+      ]
+    },
+    { "_key": "nav-notfall", "titel": "Notfalldienst", "ziel": "/notfalldienst/" },
+    { "_key": "nav-team", "titel": "Team", "ziel": "/team/" },
+    { "_key": "nav-partner", "titel": "Partner", "ziel": "/partner/" },
+    { "_key": "nav-kontakt", "titel": "Kontakt", "ziel": "/kontakt/" }
+  ],
+  "kopfKnopf": { "titel": "Notfall 044 840 07 70", "ziel": "tel:+41448400770" },
+  "mobilLeiste": { "anrufen": "Anrufen", "anfragen": { "titel": "Projekt anfragen", "ziel": "/kontakt/" } },
+  "footer": {
+    "gruppen": [
+      {
+        "titel": "Leistungen",
+        "links": [
+          { "titel": "Planung und Projektierung", "ziel": "/elektroinstallationen/planung-und-projektierung/" },
+          { "titel": "Service und Unterhalt", "ziel": "/elektroinstallationen/service-und-unterhalt/" },
+          { "titel": "Neu- und Umbauten", "ziel": "/elektroinstallationen/neu-und-umbauten/" },
+          { "titel": "Industrie und Gewerbe", "ziel": "/elektroinstallationen/industrie-und-gewerbe/" },
+          { "titel": "Beleuchtung", "ziel": "/elektroinstallationen/beleuchtung/" },
+          { "titel": "Apparateverkauf und Einbau", "ziel": "/elektroinstallationen/apparateverkauf-und-einbau/" },
+          { "titel": "Telekommunikation", "ziel": "/elektroinstallationen/telekommunikation/" },
+          { "titel": "Sicherheit", "ziel": "/elektroinstallationen/sicherheit/" }
+        ]
+      },
+      {
+        "titel": "Unternehmen",
+        "links": [
+          { "titel": "Notfalldienst", "ziel": "/notfalldienst/" },
+          { "titel": "Team", "ziel": "/team/" },
+          { "titel": "Partner", "ziel": "/partner/" },
+          { "titel": "Kontakt", "ziel": "/kontakt/" }
+        ]
+      }
+    ],
+    "rechtslinks": [
+      { "titel": "Impressum", "ziel": "/impressum/" },
+      { "titel": "Datenschutzerklärung", "ziel": "/datenschutz/" }
+    ],
+    "demoHinweis": "Entwurf: unverbindliche Verkaufs-Demo, nicht die offizielle Website der Altec Elektro GmbH."
+  },
+  "seo": {
+    "titelZusatz": "Altec Elektro GmbH, Zürich",
+    "beschreibung": "Altec Elektro GmbH, Zürich Seefeld: Elektroplanung, Elektroinstallationen für Stark- und Schwachstrom, Telekommunikation, Service, 7×24-Stunden-Notfalldienst."
+  },
+  "ui": {
+    "zumInhalt": "Zum Inhalt springen",
+    "menue": "Menü",
+    "menueSchliessen": "Menü schliessen",
+    "hauptnavigation": "Hauptnavigation",
+    "notfallKurz": "Notfall",
+    "notfalldienst": "Notfalldienst",
+    "buerozeiten": "Büroöffnungszeiten",
+    "mehrErfahren": "Mehr erfahren",
+    "alleLeistungen": "Alle Leistungen",
+    "weitereLeistungen": "Weitere Leistungen",
+    "vorherigeLeistung": "Vorherige Leistung",
+    "naechsteLeistung": "Nächste Leistung",
+    "zurUebersicht": "Zur Übersicht",
+    "telefon": "Telefon",
+    "fax": "Fax",
+    "email": "E-Mail",
+    "adresse": "Adresse",
+    "route": "Route in Google Maps öffnen",
+    "seiteNichtGefunden": "Seite nicht gefunden",
+    "seiteNichtGefundenText": "Die aufgerufene Adresse gibt es auf dieser Website nicht. Über das Menü finden Sie alle Leistungen, den Notfalldienst und die Kontaktangaben.",
+    "zurStartseite": "Zur Startseite",
+    "quartiere": "Schnell vor Ort in den Quartieren",
+    "agglomeration": "Und in der Agglomeration",
+    "notfallnummern": "Notfalldienst-Nummern",
+    "erreichbarkeit": "Erreichbarkeit",
+    "stand": "Stand",
+    "anrufen": "Anrufen",
+    "kontaktAlternative": "Direkt erreichen",
+    "webseite": "Website"
+  },
+  "formular": {
+    "titel": "Projekt anfragen",
+    "einleitung": "Beschreiben Sie kurz Ihr Anliegen. Beim Absenden öffnet sich Ihr E-Mail-Programm mit einer vorbereiteten Nachricht an info@altec-elektro.ch; die Website selbst versendet und speichert nichts.",
+    "name": "Name",
+    "email": "E-Mail-Adresse",
+    "telefon": "Telefon (optional)",
+    "betreff": "Anliegen",
+    "betreffOptionen": [
+      { "wert": "projekt", "titel": "Projektanfrage (Neu- oder Umbau)" },
+      { "wert": "service", "titel": "Service oder Störung" },
+      { "wert": "planung", "titel": "Planung und Projektierung" },
+      { "wert": "beleuchtung", "titel": "Beleuchtung" },
+      { "wert": "telekommunikation", "titel": "Telekommunikation" },
+      { "wert": "sicherheit", "titel": "Sicherheit und Alarmanlagen" },
+      { "wert": "apparate", "titel": "Apparateverkauf und Einbau" },
+      { "wert": "allgemein", "titel": "Allgemeine Frage" }
+    ],
+    "nachricht": "Nachricht",
+    "nachrichtHilfe": "Zum Beispiel Objekt, Adresse, gewünschter Zeitraum und was gemacht werden soll.",
+    "pflicht": "Mit * markierte Felder sind erforderlich.",
+    "fehlerName": "Bitte geben Sie Ihren Namen an.",
+    "fehlerEmail": "Bitte geben Sie eine gültige E-Mail-Adresse an, damit wir antworten können.",
+    "fehlerNachricht": "Bitte beschreiben Sie kurz Ihr Anliegen.",
+    "emailVorbereiten": "E-Mail vorbereiten",
+    "hinweisNachher": "Ihr E-Mail-Programm sollte sich jetzt mit der vorbereiteten Nachricht öffnen. Bitte prüfen und dort absenden. Falls sich nichts öffnet, schreiben Sie direkt an info@altec-elektro.ch.",
+    "datenschutzHinweis": "Die Angaben werden nur in die E-Mail übernommen; Einzelheiten in der Datenschutzerklärung."
+  },
+  "einwilligung": {
+    "bannerTitel": "Datenschutz-Einstellungen",
+    "bannerText": "Diese Website kann optionale Dienste Dritter einbinden. Sie werden erst geladen, wenn Sie zustimmen. Ohne Zustimmung bleibt die Website vollständig nutzbar.",
+    "alleAkzeptieren": "Alle akzeptieren",
+    "nurNotwendige": "Nur notwendige",
+    "einstellungen": "Einstellungen",
+    "auswahlSpeichern": "Auswahl speichern",
+    "widerrufen": "Einwilligung widerrufen",
+    "notwendigTitel": "Notwendig",
+    "notwendigText": "Nur die Speicherung Ihrer Entscheidung selbst im Browser. Keine Analyse, keine Werbung.",
+    "datenschutzerklaerung": "Datenschutzerklärung",
+    "kategorien": []
+  }
+}

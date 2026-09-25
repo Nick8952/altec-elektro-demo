@@ -1,0 +1,8 @@
+[
+  { "id": "partner-protectas", "name": "Protectas", "logo": { "bild": "partner-protectas", "alt": "Protectas" }, "reihenfolge": 1 },
+  { "id": "partner-otto-fischer", "name": "Otto Fischer", "logo": { "bild": "partner-otto-fischer", "alt": "Otto Fischer" }, "reihenfolge": 2 },
+  { "id": "partner-komma3", "name": "Komma3 Multimedia", "logo": { "bild": "partner-komma3", "alt": "Komma3" }, "url": "http://www.komma3.ch", "reihenfolge": 3 },
+  { "id": "partner-heinz-von-heiden", "name": "Heinz von Heiden", "logo": { "bild": "partner-heinz-von-heiden", "alt": "Heinz von Heiden" }, "reihenfolge": 4 },
+  { "id": "partner-atc-treuhand", "name": "ATC Treuhand", "logo": { "bild": "partner-atc-treuhand", "alt": "ATC Treuhand" }, "url": "http://atc-treuhand.ch/", "reihenfolge": 5 },
+  { "id": "partner-winterhalder-fenner", "name": "Winterhalder Fenner", "logo": { "bild": "partner-winterhalder-fenner", "alt": "Winterhalder Fenner" }, "reihenfolge": 6 }
+]

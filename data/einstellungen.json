@@ -1,0 +1,34 @@
+{
+  "firma": "Altec Elektro GmbH",
+  "kurzname": "Altec Elektro",
+  "claim": "Elektroinstallationen und Telekommunikation im Zürcher Seefeld",
+  "adresse": { "strasse": "Hedwigstrasse 12", "plz": "8032", "ort": "Zürich", "quartier": "Seefeld", "land": "Schweiz" },
+  "telefon": "+41 44 840 07 70",
+  "fax": "+41 44 840 07 71",
+  "email": "info@altec-elektro.ch",
+  "notfall": {
+    "titel": "7×24-Stunden-Notfall/Pikett",
+    "verfuegbarkeit": "7×24 Stunden, 365 Tage im Jahr",
+    "text": "Wir bieten einen 7×24-Stunden-Notfall-/Pikettservice an 365 Tagen im Jahr und stellen Ihnen für den Notfalldienst nur qualifizierte Elektroinstallateure zur Verfügung. Auf Ihren Notfall-Elektriker ist Verlass!",
+    "nummern": ["044 840 07 70", "079 653 83 99"],
+    "quartiere": ["Riesbach", "Mühlebach", "Hottingen", "Hirslanden", "Fluntern"],
+    "agglomeration": ["Zollikon", "Zollikerberg", "Zumikon", "Küssnacht", "Erlenbach", "Herrliberg"],
+    "hinweis": "Ortsnamen wie auf der bisherigen Website angegeben."
+  },
+  "oeffnungszeiten": [
+    {
+      "_key": "mo-fr",
+      "tage": "Montag bis Freitag",
+      "zeiten": "08.00–12.00 und 13.00–17.00 Uhr",
+      "wochentage": ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag"],
+      "intervalle": [
+        { "_key": "vormittag", "von": "08:00", "bis": "12:00" },
+        { "_key": "nachmittag", "von": "13:00", "bis": "17:00" }
+      ]
+    }
+  ],
+  "oeffnungszeitenText": "Unser Sekretariat ist von Montag bis Freitag von 08.00 bis 12.00 Uhr und von 13.00 bis 17.00 Uhr geöffnet. In Notfällen erreichen Sie uns selbstverständlich auch am Abend und am Wochenende.",
+  "routenlink": "https://www.google.com/maps/search/?api=1&query=Altec+Elektro+GmbH%2C+Hedwigstrasse+12%2C+8032+Z%C3%BCrich",
+  "logo": { "bild": "logo-original", "alt": "Altec Elektro GmbH" },
+  "seoBild": { "bild": "hero-zuerich", "alt": "Zürich am Abend: Limmatquai mit Blick auf die Altstadt" }
+}

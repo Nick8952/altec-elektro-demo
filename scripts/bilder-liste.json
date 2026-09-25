@@ -1,0 +1,18 @@
+{
+  "hero-zuerich": { "datei": "zuerich.jpg" },
+  "leistung-planung": { "datei": "planungundprojektierung.jpg" },
+  "leistung-service": { "datei": "servieundunterhalt.jpg" },
+  "leistung-neubau": { "datei": "neuundumbauten.jpg" },
+  "leistung-industrie": { "datei": "industrieundgewerbe.jpg" },
+  "leistung-beleuchtung": { "datei": "beleuchtung.jpg" },
+  "leistung-apparate": { "datei": "apparateverkauf.jpg" },
+  "leistung-telekom": { "datei": "telekommunikation.jpeg" },
+  "leistung-sicherheit": { "datei": "sicherheit.jpeg" },
+  "partner-protectas": { "datei": "protectas.jpg", "breiten": [200] },
+  "partner-otto-fischer": { "datei": "otto-fischer.jpg", "breiten": [200] },
+  "partner-komma3": { "datei": "komma3-multimedia.jpg", "breiten": [250] },
+  "partner-heinz-von-heiden": { "datei": "heinz-von-heiden.jpg", "breiten": [200] },
+  "partner-atc-treuhand": { "datei": "atc-treuhand250.jpg", "breiten": [250] },
+  "partner-winterhalder-fenner": { "datei": "winterhalder-fenner.jpg", "breiten": [200] },
+  "logo-original": { "datei": "Altec_logo.png", "format": "png", "breiten": [186] }
+}

@@ -1,0 +1,46 @@
+{
+ "id": "seite-partner",
+ "slug": "partner",
+ "titel": "Unsere Partner",
+ "art": "seite",
+ "teaser": "Lieferanten, Kunden, Mitarbeiter, Kapitalgeber, der Staat und die Konkurrenz: unsere Partner.",
+ "seoBeschreibung": "Partner der Altec Elektro GmbH: Protectas, Otto Fischer, Komma3, Heinz von Heiden, ATC Treuhand, Winterhalder Fenner.",
+ "alteUrls": [
+  "/unsere-partner",
+  "/unsere-partner-b"
+ ],
+ "quelle": "https://www.altec-elektro.ch/unsere-partner",
+ "hero": {
+  "variante": "kompakt",
+  "titel": "Unsere Partner",
+  "text": "Hohe Qualitätsansprüche und unterschiedliche Erwartungen aller Interessensgruppen erfordern gute, zuverlässige und faire Partner! Dazu zählen wir unsere Lieferanten, Kunden, Mitarbeiter, Kapitalgeber, den Staat, aber auch die Konkurrenz. Zusammen erkunden wir kontinuierlich allgemeine Entwicklungstendenzen."
+ },
+ "bausteine": [
+  {
+   "_type": "partnerBaustein",
+   "_key": "bsq",
+   "anker": "partner"
+  },
+  {
+   "_type": "hinweisBaustein",
+   "_key": "bst",
+   "art": "info",
+   "inhalt": [
+    {
+     "_type": "block",
+     "_key": "br",
+     "style": "normal",
+     "children": [
+      {
+       "_type": "span",
+       "_key": "ss",
+       "text": "Die Logos stammen von der bisherigen Website. Verlinkt sind nur die Partner, die dort ebenfalls verlinkt waren (Komma3, ATC Treuhand). Die übrigen Partner-Websites können nach Rücksprache ergänzt werden.",
+       "marks": []
+      }
+     ],
+     "markDefs": []
+    }
+   ]
+  }
+ ]
+}

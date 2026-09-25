@@ -1,0 +1,5 @@
+[
+  { "id": "team-alek-mjekici", "name": "Alek Mjekici", "funktion": "Geschäftsführer", "reihenfolge": 1 },
+  { "id": "team-adrian-mjeku", "name": "Adrian Mjeku", "funktion": "Leitung Finanzen/Marketing", "reihenfolge": 2 },
+  { "id": "team-ulrich-kuettel", "name": "Ulrich Küttel", "funktion": "Fachkundiger Leiter", "reihenfolge": 3 }
+]
