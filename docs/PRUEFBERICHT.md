@@ -134,6 +134,13 @@ Neue Hero-Variante «Verteiler» (Direkteinstieg zu allen acht Leistungen), Fakt
 grün; DOM-Audit 68/68 ohne Befund; Funktionsprüfungen 40/40. Hinweis: zwei Audit-Läufe brachen während paralleler Build-/Codex-Last mit
 Navigations-Timeouts ab (kein Befund an der Website); der Lauf auf der unbelasteten Maschine war vollständig.
 
+Codex-Review 3 (nur Startseite, eingeschränkte Quellenliste): 6 Befunde. Umgesetzt: «Beleuchtung, die nicht flimmert» (verschärftes
+Versprechen) → «Beratung zur Beleuchtung im Büro»; «ein Ansprechpartner … vom ersten Plan bis zum Störungsfall» (unbelegt) → neutraler
+Einleitungssatz; «Kreis 8» (nicht aus der Quelle) entfernt. Abgelehnt, weil in der Quelle belegt (Startseite altec-elektro.ch, in der
+Codex-Quellenliste nicht enthalten): «Starkstrom und Schwachstrom», «Kabelfernseh-Systeme und SAT-Anlagen», Leitsatz «Wir kümmern uns um
+alles …» (wörtliches Zitat). Feldkonsistenz JSON/Adapter/GROQ/Schema und Überschriftenfolge von Codex bestätigt. Ein erster Lauf dieses
+Reviews blieb nach 1,5 h ohne Fortschritt hängen und wurde abgebrochen.
+
 ## 9. Nicht durchführbare Prüfungen
 
 - Echte Geräte (iOS Safari, Android Chrome), Screenreader (VoiceOver/NVDA): nicht verfügbar in dieser Umgebung.

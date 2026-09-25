@@ -77,7 +77,7 @@
     {
      "_key": "buero",
      "titel": "Büro",
-     "text": "Infrastruktur für den Bürokomplex, EDV-Vernetzung vom Tischtelefon bis zum Patchpanel und Beleuchtung, die nicht flimmert.",
+     "text": "Infrastruktur für den Bürokomplex, EDV-Vernetzung vom Tischtelefon bis zum Patchpanel und Beratung zur Beleuchtung im Büro.",
      "bild": {
       "bild": "leistung-telekom",
       "alt": "Netzwerkkabel in einem Patchpanel"
@@ -107,7 +107,7 @@
    "_key": "bs3",
    "anker": "ablauf",
    "titel": "Geplant. Ausgeführt. Gewartet.",
-   "einleitung": "Drei Schritte, ein Ansprechpartner: Wir bleiben vom ersten Plan bis zum Störungsfall zuständig.",
+   "einleitung": "Planung, Ausführung und Service: drei Bereiche rund um Ihre Elektroinstallationen.",
    "schritte": [
     {
      "_key": "planen",
@@ -181,7 +181,7 @@
     "bild": "hero-zuerich",
     "alt": "Zürich am Abend: Limmatquai mit Blick auf die Altstadt"
    },
-   "bildText": "Zürich, Limmatquai. Hedwigstrasse 12 liegt im Seefeld, Kreis 8."
+   "bildText": "Zürich, Limmatquai. Die Altec Elektro GmbH ist an der Hedwigstrasse 12 im Seefeld zuhause."
   },
   {
    "_type": "notfallBaustein",

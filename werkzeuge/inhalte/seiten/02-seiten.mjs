@@ -30,14 +30,14 @@ export default [
         einleitung: "Stark- und Schwachstrom, Multimedia, Kabelfernseh-Systeme und SAT-Anlagen: Wählen Sie den Einstieg, der zu Ihrem Objekt passt.",
         gruppen: [
           { _key: "wohnen", titel: "Wohnen", text: "Von der Sanierung der Altbauwohnung bis zur digital vernetzten Villa: Küchenumbau, Beleuchtung, Apparate gebrauchsfertig geliefert und angeschlossen.", bild: bild("leistung-neubau", "Rohbau mit Elektroinstallationen"), link: { titel: "Neu- und Umbauten", ziel: "/elektroinstallationen/neu-und-umbauten/" } },
-          { _key: "buero", titel: "Büro", text: "Infrastruktur für den Bürokomplex, EDV-Vernetzung vom Tischtelefon bis zum Patchpanel und Beleuchtung, die nicht flimmert.", bild: bild("leistung-telekom", "Netzwerkkabel in einem Patchpanel"), link: { titel: "Telekommunikation", ziel: "/elektroinstallationen/telekommunikation/" } },
+          { _key: "buero", titel: "Büro", text: "Infrastruktur für den Bürokomplex, EDV-Vernetzung vom Tischtelefon bis zum Patchpanel und Beratung zur Beleuchtung im Büro.", bild: bild("leistung-telekom", "Netzwerkkabel in einem Patchpanel"), link: { titel: "Telekommunikation", ziel: "/elektroinstallationen/telekommunikation/" } },
           { _key: "industrie", titel: "Industrie und Gewerbe", text: "Lüftungsanlagen, Heizungen, Förderanlagen: von der Schützensteuerung bis zur KNX-Steuerung, mit langjähriger Erfahrung im Industrieservice.", bild: bild("leistung-industrie", "Industrieanlage mit Schaltschrank"), link: { titel: "Industrie und Gewerbe", ziel: "/elektroinstallationen/industrie-und-gewerbe/" } },
         ],
       }),
       b("ablaufBaustein", {
         anker: "ablauf",
         titel: "Geplant. Ausgeführt. Gewartet.",
-        einleitung: "Drei Schritte, ein Ansprechpartner: Wir bleiben vom ersten Plan bis zum Störungsfall zuständig.",
+        einleitung: "Planung, Ausführung und Service: drei Bereiche rund um Ihre Elektroinstallationen.",
         schritte: [
           { _key: "planen", titel: "Geplant", text: "Schemas und Pläne werden auf CAD gezeichnet und Ihnen als Farbdruck ausgehändigt. Planerische Weitsicht gehört seit Jahren zu unseren Stärken.", link: { titel: "Planung und Projektierung", ziel: "/elektroinstallationen/planung-und-projektierung/" } },
           { _key: "ausfuehren", titel: "Ausgeführt", text: "Installationen für Neu- und Umbauten führen wir termin- und fachgerecht aus, vom Küchenumbau bis zum Neubauobjekt.", link: { titel: "Neu- und Umbauten", ziel: "/elektroinstallationen/neu-und-umbauten/" } },
@@ -52,7 +52,7 @@ export default [
 
 Dank der zentralen Lage im Zürcher Seefeld sind unsere Elektriker für Sie in der Stadt Zürich sowie in den umliegenden Agglomerationen schnell vor Ort.`),
         bild: bild("hero-zuerich", "Zürich am Abend: Limmatquai mit Blick auf die Altstadt"),
-        bildText: "Zürich, Limmatquai. Hedwigstrasse 12 liegt im Seefeld, Kreis 8.",
+        bildText: "Zürich, Limmatquai. Die Altec Elektro GmbH ist an der Hedwigstrasse 12 im Seefeld zuhause.",
       }),
       b("notfallBaustein", { anker: "notfall", mitGebieten: true }),
       b("teamBaustein", { anker: "team", titel: "Team", einleitung: "Wir sind ein junges, dynamisches Team mit eingespielten und motivierten Mitarbeitern. Wir beschäftigen nur ausgewiesene Fachleute mit einer soliden Fachkompetenz und langjähriger Berufserfahrung." }),
