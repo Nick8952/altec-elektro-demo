@@ -14,8 +14,9 @@ Beides ist vorbereitet (Schemas, Studio-Config, Server-Routen, Seed-Skript), abe
 Tokens oder Zugänge. Die Demo funktioniert vollständig ohne diese Dienste, ohne Env-Variablen und ohne Anfragen an Dritte.
 
 ```
-app/                 layout.tsx (Kopf, Fuss, mobile Leiste, Einwilligung, JSON-LD), page.tsx (Start), [...pfad]/page.tsx (alle Unterseiten
-                     inkl. Leistungen, generateStaticParams, dynamicParams=false), Seite.tsx, not-found.tsx, icon.svg, globals.css (Tokens)
+app/                 layout.tsx (Kopf, Fuss, mobile Leiste, Einwilligung, Schrift via next/font/local, JSON-LD nur bei Freigabe), page.tsx (Start),
+                     [...pfad]/page.tsx (alle Unterseiten inkl. Leistungen, generateStaticParams; dynamicParams wird von scripts/vercel-routen.mjs
+                     je Betriebsart gesetzt), Seite.tsx, not-found.tsx, icon.svg, robots.ts + sitemap.ts (je INDEXIERUNG), globals.css (Tokens)
 components/          UI-Bausteine, deutsch benannt: Navigation (Untermenü, <dialog>), Hero, Leistungen (Sammelschiene), Notfall, Team,
                      Partner, Kontakt + Anfrageformular (mailto), Zitat, Spalten, Text, Hinweis, Aufruf, Fusszeile, MobilLeiste,
                      Einwilligung (ruhend), Logo (Vektor-Nachbau), Symbol (Schema-Zeichen), Bild, RichText, SmartLink, LeistungSeite
@@ -27,7 +28,7 @@ data/                einstellungen.json (Firma, Kontakt, Notfall, Bürozeiten), 
 werkzeuge/inhalte/   Quellen der Seiten und Leistungen (Markdown-ähnlich) → `npm run inhalte` schreibt data/seiten und data/leistungen.json
 werkzeuge/qa/        Browser-Prüfungen mit puppeteer-core: audit.mjs, funktionen.mjs, screenshots.mjs (Vorschau-Server nötig)
 assets/originale/    Originalbilder von altec-elektro.ch + HERKUNFT.md · scripts/bilder-liste.json ordnet Bild-IDs zu
-public/bilder/       generierte WebP/PNG-Varianten (nie hochskaliert) · public/robots.txt (Disallow, Demo)
+public/bilder/       generierte WebP/PNG-Varianten (nie hochskaliert)
 sanity/              env.ts, client.ts (lazy), bild.ts, schemas/ (deutsche Felder, Hilfetexte, Validierungen) · sanity.config.ts
 server-routes/app/   Studio, /api/revalidate, /api/vorschau/*: werden NUR für DEPLOY_TARGET=vercel nach app/ kopiert
 scripts/             vercel-routen.mjs, bilder-optimieren.mjs, export-pruefen.mjs, export-nachbereiten.mjs, vorschau-server.mjs,
@@ -54,7 +55,7 @@ docs/                INHALTSMATRIX, DESIGN, ENTSCHEIDUNGEN, SANITY-VERCEL-EINRIC
 | Sanity-Import (nur mit eingerichtetem Projekt) | `npm run seed -- --probe` (Trockenlauf) · `npm run seed` · `--force` überschreibt |
 
 Vor jedem Commit: `npm run pruefen && npm run build && npm run export:pruefen`. Die CI (`.github/workflows/pages.yml`) macht dasselbe
-plus einen Vercel-Probebuild und deployt `out/` nach GitHub Pages.
+plus Browser-QA (`npm run qa` gegen den Export) und einen Vercel-Probebuild und deployt `out/` nach GitHub Pages.
 
 ## Verbindliche Regeln
 
@@ -74,12 +75,14 @@ plus einen Vercel-Probebuild und deployt `out/` nach GitHub Pages.
 - Karte nur als externer Link (`einstellungen.routenlink`). Keine Einbettung ohne Einwilligungskomponente.
 
 ### Datenschutz, Einwilligung, Sicherheit
-- Die Demo sendet **keine** Anfragen an Dritte: Schriften lokal (`@fontsource-variable/schibsted-grotesk`), keine Analyse, keine Karten,
+- Die Demo sendet **keine** Anfragen an Dritte: Schrift lokal (woff2 aus `@fontsource-variable/schibsted-grotesk` über `next/font/local`, nur
+  Latin-Schnitt), keine Analyse, keine Karten,
   keine Videos. Deshalb kein Cookie-Banner. Die Einwilligungskomponente (`components/Einwilligung.tsx`, `lib/einwilligung*.ts`) ist vorbereitet
   und wird aktiv, sobald `texte.einwilligung.kategorien` einen Eintrag hat; dann blockiert jeder optionale Dienst bis zur Einwilligung.
 - Keine Zugangsdaten oder Tokens im Repository. `.env.example` enthält nur leere Beispielwerte.
 - Externe Links immer mit `rel="noopener noreferrer"`; Ziel-Schemata über `lib/assets.ts` (`sichererLink`) begrenzt.
-- Demo bleibt `noindex, nofollow` (Ausnahme nur mit `INDEXIERUNG=1` beim Go-Live), `robots.txt` bleibt lesbar.
+- Demo bleibt `noindex, nofollow`; `app/robots.ts` sperrt und `app/layout.tsx` gibt kein JSON-LD aus. Erst `INDEXIERUNG=1` (Go-Live auf
+  der Kundendomain) erlaubt Indexierung, nennt die Sitemap und schreibt das `Electrician`-JSON-LD.
 
 ### Design («Sammelschiene»)
 - Eigenständiges Design, kein Reskin früherer Demos. Referenzarchitektur (Export/Sanity/Vercel-Kopiermuster, QA-Skripte) stammt aus
@@ -93,7 +96,8 @@ plus einen Vercel-Probebuild und deployt `out/` nach GitHub Pages.
   nie hochskalieren. Keine KI-Bildgenerierung (Entscheid des Auftraggebers). Generierte Bilder dürften nie als Team/Referenzen ausgegeben werden.
 
 ### GitHub Pages
-- `basePath`/`assetUrl()` überall; nie absolute Pfade ohne Präfix. `trailingSlash: true`, Catch-all mit `dynamicParams = false`.
+- `basePath`/`assetUrl()` überall; nie absolute Pfade ohne Präfix. `trailingSlash: true`. Der Catch-all hat `dynamicParams = false; // vercel-routen`;
+  diese Zeile schreibt `scripts/vercel-routen.mjs` vor jedem Build/Dev-Start passend um (Export: false, Vercel: true). Nie von Hand ändern.
 - `scripts/export-pruefen.mjs` muss grün sein. `.github/workflows/pages.yml` deployt bei Push auf `main`; Pages-Quelle ist «GitHub Actions».
 
 ### Sanity / Vercel (nur vorbereitet)
