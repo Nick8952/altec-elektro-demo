@@ -42,8 +42,17 @@ for (const [id, cfg] of Object.entries(BILDER)) {
   quellen.sort((a, b) => a.breite - b.breite);
   verzeichnis[id] = { id, original: `assets/originale/${cfg.datei}`, breite: meta.width, hoehe: meta.height, quellen };
 }
-await rm(ZIEL, { recursive: true, force: true });
-await rename(TEMP, ZIEL);
+const ALT = `${ZIEL}.alt`;
+await rm(ALT, { recursive: true, force: true });
+let hatteAlt = false;
+try { await rename(ZIEL, ALT); hatteAlt = true; } catch { /* noch kein Bestand */ }
+try {
+  await rename(TEMP, ZIEL);
+} catch (err) {
+  if (hatteAlt) await rename(ALT, ZIEL);
+  throw err;
+}
+await rm(ALT, { recursive: true, force: true });
 await mkdir(path.join(WURZEL, "data"), { recursive: true });
 await writeFile(path.join(WURZEL, "data/bilder.json"), JSON.stringify(verzeichnis, null, 2) + "\n");
 console.log(`${Object.keys(verzeichnis).length} Bilder → data/bilder.json, ${(await readdir(ZIEL)).length} Dateien in public/bilder`);

@@ -1,5 +1,6 @@
 import type { PartnerBaustein, Texte } from "@/lib/content/types";
 import { Bild } from "./Bild";
+import { SmartLink } from "./SmartLink";
 
 /** Logowand: nur Logos, keine Kategorie-Etiketten. Verlinkt sind ausschliesslich Partner, die die Quelle verlinkt hat. */
 export function Partner({ baustein: b, texte: t }: { baustein: PartnerBaustein; texte: Texte }) {
@@ -14,9 +15,10 @@ export function Partner({ baustein: b, texte: t }: { baustein: PartnerBaustein; 
           return (
             <li key={p.id} className="auftauchen flex min-h-28 items-center justify-center bg-papier p-5">
               {p.url ? (
-                <a href={p.url} target="_blank" rel="noopener noreferrer" className="flex min-h-11 w-full items-center justify-center rounded-[var(--radius-klein)] transition-opacity hover:opacity-70" aria-label={`${p.name}: ${t.ui.webseite}`}>
+                <SmartLink link={{ ziel: p.url, extern: true }} className="flex min-h-11 w-full items-center justify-center rounded-[var(--radius-klein)] transition-opacity hover:opacity-70" title={`${p.name}: ${t.ui.webseite}`}>
                   {inhalt}
-                </a>
+                  <span className="nur-sr">{p.name}: {t.ui.webseite}</span>
+                </SmartLink>
               ) : (
                 inhalt
               )}

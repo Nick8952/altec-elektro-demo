@@ -36,7 +36,7 @@ H1-Überlauf bei 360/390 px durch lange Wörter («Datenschutzerklärung», «El
 - Tastatur: erster Tab = Skip-Link, Enter setzt Fokus auf `main`; Untermenü mit `aria-expanded`, Enter öffnet, Pfeil nach unten fokussiert ersten Eintrag, Escape schliesst und gibt Fokus zurück; Fokusring ≥ 2 px; `aria-current` auf der aktiven Seite.
 - Mobil (360 px): Kontaktleiste mit «Anrufen» und «Projekt anfragen», verdeckt die Fusszeile nicht, fehlt auf /kontakt/; Menüknopf ≥ 44 px, Dialog öffnet mit aufgeklappter aktiver Gruppe und Fokus im Dialog, alle Menüziele ≥ 44 px, Escape schliesst.
 - Bewegung: mit `prefers-reduced-motion: reduce` keine Animation und alles sichtbar; sonst Scroll-Timeline aktiv.
-- Formular (fiktive Daten, kein Versand): `action=mailto`, `method=get`; nur Name, E-Mail, Telefon, Anliegen, Nachricht; sichtbare Labels; leer absenden → 3 Fehlermeldungen, Fokus im ersten Fehlerfeld, kein mailto; ungültige E-Mail → 1 Fehlermeldung; gültig → `mailto:info@altec-elektro.ch` mit Name und Nachricht im Body (abgefangen über CDP, nicht ausgeführt); Statushinweis nennt das E-Mail-Programm, keine falsche Versandbestätigung; nichts gespeichert, URL unverändert.
+- Formular (fiktive Daten, kein Versand): kein `action` (Website sendet nichts), `<noscript>`-E-Mail-Link; nur Name, E-Mail, Telefon, Anliegen, Nachricht; sichtbare Labels; leer absenden → 3 Fehlermeldungen, Fokus im ersten Fehlerfeld, kein mailto; ungültige E-Mail → 1 Fehlermeldung; gültig → `mailto:info@altec-elektro.ch` mit Name und Nachricht im Body (abgefangen über CDP, nicht ausgeführt); Statushinweis nennt das E-Mail-Programm, keine falsche Versandbestätigung; nichts gespeichert, URL unverändert.
 - Links: Telefonlinks E.164 (`tel:+41448400770`, `tel:+41796538399`); genau 2 externe Partnerlinks mit `noopener`; 6 Partnerlogos mit Alt-Text; Routenlink extern, kein iframe; mailto auf info@altec-elektro.ch; Leistungs-Nachbarn; Kantonsliste auf /sicherheit/; 404 mit Status 404, gestaltet, noindex.
 
 ## 4. Mobile Prüfung (Bericht)
@@ -62,9 +62,9 @@ kleinste Angabe 12 px nur bei «GmbH» im Logo (dekorativ). Kontraste gerechnet:
 | /elektroinstallationen/beleuchtung/ | Mobil | 82 | 100 | 100 | 66* | 4.8 s | 0 | 20 ms |
 | /kontakt/ | Mobil | 90 | 100 | 100 | 63* | 3.6 s | 0 | 20 ms |
 
-\* SEO-Abzug ausschliesslich wegen `noindex` (Demo, beabsichtigt) und, auf /kontakt/, fehlender Meta-Description-Länge? Nein: nur «is-crawlable».
+\* SEO-Abzug ausschliesslich wegen `noindex` («is-crawlable»; Demo, beabsichtigt).
 Mobile Werte nach dem Wechsel auf `next/font/local` (Schrift-Preload): FCP 1.8 → 1.2 s. Die mobilen LCP-Werte sind durch den lokalen
-Server ohne gzip (HTML 126 KB, JS 450 KB unkomprimiert; auf GitHub Pages ca. 25 KB + 140 KB) verzerrt. Messung gegen die Live-URL: Abschnitt 8.
+Server ohne gzip (HTML 126 KB, JS 450 KB unkomprimiert) verzerrt; massgebend ist die Live-Messung in Abschnitt 8.
 Einziger Accessibility-Befund im ersten Lauf (`label-content-name-mismatch` am Logo-Link) behoben; danach 100.
 
 ## 6. Codex-Reviews
@@ -83,11 +83,46 @@ echter Sanity-Testlauf (kein Projekt erlaubt), Postanschrift des Betreibers (lie
 
 ## 7. Abschluss-Review (Codex) und Nacharbeiten
 
-_(wird nach dem Lauf ergänzt)_
+12 Befunde (2 hoch, 5 mittel, 5 niedrig), Kurzurteil «bereit für Übergabe: nein» wegen (1) ungeklärter Bildrechte und (2) einer
+Pfad-Traversierung im lokalen Vorschau-Server. Umgesetzt:
+- Vorschau-Server: Pfad wird nach dem Dekodieren gegen `out/` geprüft, Bindung an 127.0.0.1 (`scripts/vorschau-server.mjs`).
+- `scripts/vercel-routen.mjs` verlangt genau eine Markierungszeile; `build:vercel` läuft über `scripts/build-vercel.mjs` mit garantiertem
+  Zurücksetzen von `dynamicParams` (auch bei Build-Fehlern, Exit-Code bleibt erhalten).
+- Launch-Dokumentation an `app/robots.ts`/`app/sitemap.ts` angepasst (`docs/UEBERGABE.md`, `docs/SANITY-VERCEL-EINRICHTUNG.md`).
+- `aria-current="page"` nur bei exakter Seite; der Elterneintrag «Elektroinstallationen» bleibt auf Leistungsseiten nur farblich markiert.
+- Demo-Hinweis zusätzlich als schmale Zeile über der Navigation (verschwindet mit `INDEXIERUNG=1`).
+- Quellaufnahme (HTML, Textauszüge, SHA-256, Abrufprotokoll) ausserhalb des Repos archiviert: `../00_notes/altec-elektro-quelle-2026-09-25/`.
+- Bildaustausch mit Rückfall (alter Bestand bleibt bei Fehler erhalten).
+- Inhaltsprüfung: Seiten-IDs, Kopfknopf = erste Notfallnummer, E-Mail-Adressen in Texten = Einstellungen.
+- Partnerlinks über `SmartLink` (Screenreader-Hinweis «öffnet in neuem Tab»).
+- Fax in der Fusszeile; Notfalltext ohne Wiederholung der Verfügbarkeit.
+- Zusätzlich aus der Live-Lighthouse-Messung: `action="mailto:"` am Formular entfernt (Lighthouse wertete es als unsicheren Request);
+  ohne JavaScript zeigt ein `<noscript>`-Link die E-Mail-Adresse.
+Nicht behebbar durch den Code, an den Auftraggeber übergeben: **Bildrechte** (UEBERGABE A3). Der Auftraggeber hat das Repository ausdrücklich
+als «public» gewünscht; die Entscheidung, das Material bis zur Freigabe zu entfernen oder die Demo zugangsbeschränkt zu zeigen, liegt bei ihm.
 
 ## 8. Live-Prüfung GitHub Pages
 
-_(wird nach dem Deploy ergänzt)_
+Repository https://github.com/Nick8952/altec-elektro-demo (public), Pages-Quelle «GitHub Actions», Workflow-Lauf 36133399285:
+Jobs `build` (inkl. Inhalt, Lint, Typen, Export-Prüfung, Browser-QA 68/68 + 40/40 auf dem Runner), `vercel-probe`, `deploy` alle grün.
+
+Live-URL https://nick8952.github.io/altec-elektro-demo/: Startseite 200, tiefe Adresse `/elektroinstallationen/beleuchtung/` 200,
+unbekannte Adresse 404 mit gestalteter Seite. Browser-Audit gegen die Live-URL (360 + 1440 px, 17 Seiten): 34/34 ohne Befund.
+Funktionsprüfungen gegen die Live-URL: 40/40. Screenshots 390/1440 px gesichtet.
+
+Lighthouse 13.5 gegen die Live-URL (Chrome headless, Standard-Drosselung):
+
+| Seite | Modus | Performance | Accessibility | Best Practices | SEO | FCP | LCP | CLS | TBT |
+|---|---|---|---|---|---|---|---|---|---|
+| / | Mobil | 96 | 100 | 100 | 66* | 0.9 s | 2.7 s | 0 | 20 ms |
+| /elektroinstallationen/beleuchtung/ | Mobil | 97 | 100 | 100 | 66* | 0.9 s | 2.6 s | 0 | 30 ms |
+| /kontakt/ | Mobil | 100 | 100 | 77** | 63* | 0.9 s | 1.9 s | 0 | 10 ms |
+| / | Desktop | 100 | 100 | 100 | 66* | 0.3 s | 0.5 s | 0 | 0 ms |
+| /elektroinstallationen/beleuchtung/ | Desktop | 100 | 100 | 100 | 66* | 0.2 s | 0.4 s | 0 | 0 ms |
+| /kontakt/ | Desktop | 100 | 100 | 77** | 63* | 0.2 s | 0.4 s | 0 | 0 ms |
+
+\* nur `noindex` (Demo). \*\* `form action="mailto:"` als «insecure request» gewertet; danach entfernt (Abschnitt 7), Messung nach dem
+zweiten Deploy: siehe unten.
 
 ## 9. Nicht durchführbare Prüfungen
 

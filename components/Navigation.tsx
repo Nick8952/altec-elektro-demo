@@ -21,7 +21,9 @@ export function Navigation({ texte: t, firma }: { texte: Texte; firma: string })
   const dialogRef = useRef<HTMLDialogElement>(null);
   const id = useId();
 
+  // «aktiv» färbt auch den Elterneintrag (Elektroinstallationen) auf Leistungsseiten; aria-current nur bei exakter Seite.
   const aktiv = (ziel: string) => (ziel === "/" ? pfad === "/" : (pfad ?? "").startsWith(ziel));
+  const aktuell = (ziel: string) => ((pfad ?? "") === ziel ? ("page" as const) : undefined);
 
   useEffect(() => {
     if (!offen) return;
@@ -62,7 +64,7 @@ export function Navigation({ texte: t, firma }: { texte: Texte; firma: string })
             n.kinder?.length ? (
               <li key={n._key} className="relative" onKeyDown={(ev) => untermenueTasten(ev, n._key)}>
                 <div className="flex items-center">
-                  <Link href={n.ziel} className={`inline-flex min-h-11 min-w-11 items-center rounded-[var(--radius-klein)] px-3 font-semibold transition-colors hover:text-rot ${aktiv(n.ziel) ? "text-rot" : "text-tinte"}`} aria-current={aktiv(n.ziel) ? "page" : undefined}>
+                  <Link href={n.ziel} className={`inline-flex min-h-11 min-w-11 items-center rounded-[var(--radius-klein)] px-3 font-semibold transition-colors hover:text-rot ${aktiv(n.ziel) ? "text-rot" : "text-tinte"}`} aria-current={aktuell(n.ziel)}>
                     {n.titel}
                   </Link>
                   <button type="button" className="inline-flex size-11 items-center justify-center rounded-[var(--radius-klein)] text-tinte-2 hover:text-rot" aria-expanded={offen === n._key} aria-controls={`${id}-${n._key}`} aria-label={`${n.titel}: Untermenü ${offen === n._key ? "schliessen" : "öffnen"}`} onClick={() => setOffen(offen === n._key ? null : n._key)}>
@@ -72,7 +74,7 @@ export function Navigation({ texte: t, firma }: { texte: Texte; firma: string })
                 <ul id={`${id}-${n._key}`} className={`nav-untermenue absolute left-0 top-full mt-1 w-72 rounded-[var(--radius-mittel)] border border-linie bg-papier p-2 shadow-[0_16px_40px_-20px_rgb(23_26_31/0.35)] ${offen === n._key ? "block" : "hidden"}`}>
                   {n.kinder.map((k) => (
                     <li key={k.ziel}>
-                      <SmartLink link={k} className={`block min-h-11 rounded-[var(--radius-klein)] px-3 py-2.5 text-[0.9375rem] font-medium hover:bg-flaeche ${aktiv(k.ziel) ? "text-rot" : "text-tinte"}`} aria-current={aktiv(k.ziel) ? "page" : undefined}>
+                      <SmartLink link={k} className={`block min-h-11 rounded-[var(--radius-klein)] px-3 py-2.5 text-[0.9375rem] font-medium hover:bg-flaeche ${aktiv(k.ziel) ? "text-rot" : "text-tinte"}`} aria-current={aktuell(k.ziel)}>
                         {k.titel}
                       </SmartLink>
                     </li>
@@ -81,7 +83,7 @@ export function Navigation({ texte: t, firma }: { texte: Texte; firma: string })
               </li>
             ) : (
               <li key={n._key}>
-                <Link href={n.ziel} className={`inline-flex min-h-11 min-w-11 items-center rounded-[var(--radius-klein)] px-3 font-semibold transition-colors hover:text-rot ${aktiv(n.ziel) ? "text-rot" : "text-tinte"}`} aria-current={aktiv(n.ziel) ? "page" : undefined}>
+                <Link href={n.ziel} className={`inline-flex min-h-11 min-w-11 items-center rounded-[var(--radius-klein)] px-3 font-semibold transition-colors hover:text-rot ${aktiv(n.ziel) ? "text-rot" : "text-tinte"}`} aria-current={aktuell(n.ziel)}>
                   {n.titel}
                 </Link>
               </li>
@@ -134,7 +136,7 @@ export function Navigation({ texte: t, firma }: { texte: Texte; firma: string })
                       </li>
                       {n.kinder.map((k) => (
                         <li key={k.ziel}>
-                          <SmartLink link={k} className={`block min-h-11 py-2.5 pl-4 ${aktiv(k.ziel) ? "font-semibold text-rot" : "text-tinte-2"}`} aria-current={aktiv(k.ziel) ? "page" : undefined}>
+                          <SmartLink link={k} className={`block min-h-11 py-2.5 pl-4 ${aktiv(k.ziel) ? "font-semibold text-rot" : "text-tinte-2"}`} aria-current={aktuell(k.ziel)}>
                             {k.titel}
                           </SmartLink>
                         </li>
@@ -144,7 +146,7 @@ export function Navigation({ texte: t, firma }: { texte: Texte; firma: string })
                 </li>
               ) : (
                 <li key={n._key} className="border-b border-linie-hell">
-                  <Link href={n.ziel} className={`flex min-h-12 items-center py-3 text-[1.125rem] font-bold ${aktiv(n.ziel) ? "text-rot" : ""}`} aria-current={aktiv(n.ziel) ? "page" : undefined}>
+                  <Link href={n.ziel} className={`flex min-h-12 items-center py-3 text-[1.125rem] font-bold ${aktiv(n.ziel) ? "text-rot" : ""}`} aria-current={aktuell(n.ziel)}>
                     {n.titel}
                   </Link>
                 </li>

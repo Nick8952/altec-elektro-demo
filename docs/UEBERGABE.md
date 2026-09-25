@@ -9,7 +9,7 @@ GmbH werden kann, sind folgende Punkte zu klären bzw. freizugeben.
 |---|---|---|---|
 | 1 | Rechtsform-Details fürs Impressum: Handelsregister-Nummer/UID (CHE-…), Sitz, vertretungsberechtigte Person(en), verantwortliche Person für den Inhalt | `/impressum/` | fehlt in der Quelle (kein Impressum) |
 | 2 | Datenschutz-Kontaktstelle des Unternehmens (Name/E-Mail für Auskunftsbegehren nach Art. 25 DSG) | `/datenschutz/` Ziffer 1 | fehlt |
-| 3 | Bildrechte: Dürfen die 9 Fotos und 6 Partnerlogos der bisherigen Website weiterverwendet werden? Sind es lizenzierte Stockfotos? | alle Seiten | offen |
+| 3 | **Bildrechte (Auslieferungsblocker laut Codex-Review):** Die Demo ist öffentlich erreichbar und zeigt 9 Fotos, 6 Partnerlogos und eine Logo-Nachbildung ohne nachgewiesene Lizenz. Dürfen sie weiterverwendet werden? Sind es lizenzierte Stockfotos? Bis zur Antwort: Freigabe einholen, sonst Material entfernen oder Demo zugangsbeschränkt zeigen | alle Seiten | offen, Entscheid Nick |
 | 4 | Vektorlogo (SVG/AI/PDF) und allenfalls Farbvorgaben | `components/Logo.tsx` (heute Nachbau aus einem 186-px-PNG) | offen |
 | 5 | Ortsangabe «Küssnacht» im Notfalldienst: gemeint ist vermutlich Küsnacht ZH (Zürichsee). Bestätigen oder korrigieren | `data/einstellungen.json` → `notfall.agglomeration` | wörtlich übernommen, Hinweis sichtbar |
 | 6 | Photovoltaik und «Inhousinstallationen» stehen nur in den Meta-Tags der alten Website: Leistung anbieten oder streichen? | evtl. neue Leistung | offen |
@@ -27,20 +27,21 @@ GmbH werden kann, sind folgende Punkte zu klären bzw. freizugeben.
 
 ## C. Was beim Launch geändert werden muss (Checkliste)
 
-1. `INDEXIERUNG=1` setzen (Env oder CI): hebt `noindex, nofollow` auf. Ohne Domain nicht setzen.
-2. `public/robots.txt`: `Disallow: /` entfernen, `Sitemap:`-Zeile ergänzen (Sitemap-Erzeugung ist noch nicht eingebaut, siehe D).
-3. `data/texte.json` → `footer.demoHinweis` leeren.
-4. Impressum und Datenschutzerklärung auf das Unternehmen umschreiben (Betreiber = Altec Elektro GmbH, Hosting-Abschnitt an den
+1. `INDEXIERUNG=1` setzen (Env oder CI): hebt `noindex, nofollow` auf, `app/robots.ts` erlaubt dann alles und nennt die Sitemap
+   (`app/sitemap.ts`), das `Electrician`-JSON-LD wird ausgegeben, der Demo-Hinweis über der Navigation verschwindet. Ohne Domain nicht setzen.
+   Kontrolle: `INDEXIERUNG=1 npm run build && INDEXIERUNG=1 npm run export:pruefen`.
+2. `data/texte.json` → `footer.demoHinweis` leeren (entfernt den Hinweis in der Fusszeile).
+3. Impressum und Datenschutzerklärung auf das Unternehmen umschreiben (Betreiber = Altec Elektro GmbH, Hosting-Abschnitt an den
    tatsächlichen Anbieter anpassen: GitHub Pages **oder** Vercel; Sanity-Abschnitt aktivieren, falls genutzt).
-5. `SITE_URL=https://www.altec-elektro.ch` (Canonical, Open Graph, JSON-LD) und bei GitHub Pages mit eigener Domain `BASE_PATH=` (leer).
-6. Kontaktformular: bleibt `mailto` (kein Server). Soll ein echter Versand her, braucht es einen Dienst (z. B. Formular-API) und einen
+4. `SITE_URL=https://www.altec-elektro.ch` (Canonical, Open Graph, JSON-LD) und bei GitHub Pages mit eigener Domain `BASE_PATH=` (leer).
+5. Kontaktformular: bleibt `mailto` (kein Server). Soll ein echter Versand her, braucht es einen Dienst (z. B. Formular-API) und einen
    ergänzten Datenschutztext.
-7. Weiterleitungen alter Adressen (`data/weiterleitungen.json`) greifen nur auf Vercel; auf GitHub Pages gibt es keine Server-Redirects.
-8. Bildrechte (A3) und Rechtstexte (A1, A2) geklärt.
+6. Weiterleitungen alter Adressen (`data/weiterleitungen.json`) greifen nur auf Vercel; auf GitHub Pages gibt es keine Server-Redirects.
+7. Bildrechte (A3) und Rechtstexte (A1, A2) geklärt.
 
 ## D. Bekannte Grenzen der Demo
 
-- Kein Sitemap.xml (bei `noindex` sinnlos; für den Launch mit `app/sitemap.ts` ergänzen).
+- Sitemap wird immer erzeugt, aber erst mit `INDEXIERUNG=1` in der robots.txt genannt.
 - Keine Server-Redirects auf GitHub Pages (nur auf Vercel).
 - Die Quellbilder sind nur 590 px breit; auf grossen Bildschirmen wirken sie klein. Bessere Fotos vom Kunden anfragen.
 - Sanity/Vercel nur vorbereitet, nie mit echten Daten getestet (`docs/SANITY-VERCEL-EINRICHTUNG.md`).

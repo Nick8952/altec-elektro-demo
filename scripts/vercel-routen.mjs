@@ -27,7 +27,9 @@ if (entfernen) {
 // Route-Segment-Konfiguration muss statisch sein: dynamicParams je Betriebsart setzen (siehe Kommentar in der Seite).
 const seite = path.join(wurzel, "app/[...pfad]/page.tsx");
 const quelltext = await readFile(seite, "utf8");
-const gesetzt = quelltext.replace(/export const dynamicParams = (true|false); \/\/ vercel-routen/, `export const dynamicParams = ${entfernen ? "false" : "true"}; // vercel-routen`);
-if (gesetzt === quelltext && !/vercel-routen/.test(quelltext)) throw new Error("Markierung «// vercel-routen» in app/[...pfad]/page.tsx fehlt.");
+const muster = /export const dynamicParams = (true|false); \/\/ vercel-routen/g;
+const treffer = quelltext.match(muster)?.length ?? 0;
+if (treffer !== 1) throw new Error(`app/[...pfad]/page.tsx: erwartet genau eine Zeile «export const dynamicParams = …; // vercel-routen», gefunden: ${treffer}.`);
+const gesetzt = quelltext.replace(muster, `export const dynamicParams = ${entfernen ? "false" : "true"}; // vercel-routen`);
 if (gesetzt !== quelltext) await writeFile(seite, gesetzt);
 console.log(entfernen ? "Server-Routen entfernt, dynamicParams=false (statischer Export)." : "Server-Routen nach app/ kopiert, dynamicParams=true (Vercel).");

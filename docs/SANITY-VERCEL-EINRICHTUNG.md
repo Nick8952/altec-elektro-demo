@@ -73,9 +73,9 @@ Danach `CONTENT_SOURCE=sanity npm run build:vercel` als Build-Probe.
 
 ## 6. Domain und Go-Live
 Eigene Domain in Vercel hinzufügen, DNS beim Registrar (CNAME `www` → `cname.vercel-dns.com`, A-Record Apex gemäss Vercel-Anleitung).
-`SITE_URL` anpassen, Sanity-CORS ergänzen. Erst nach Freigabe durch das Unternehmen: `INDEXIERUNG=1` (hebt `noindex` auf),
-`footer.demoHinweis` in den Website-Texten leeren, `public/robots.txt` auf `Allow` umstellen, Impressum/Datenschutz auf das Unternehmen
-umschreiben (siehe `docs/UEBERGABE.md`). Bis dahin bleibt alles `noindex`.
+`SITE_URL` anpassen, Sanity-CORS ergänzen. Erst nach Freigabe durch das Unternehmen: `INDEXIERUNG=1` (hebt `noindex` auf, `robots.txt` und Sitemap
+schalten automatisch um, JSON-LD wird ausgegeben), `footer.demoHinweis` in den Website-Texten leeren, Impressum/Datenschutz auf das
+Unternehmen umschreiben (siehe `docs/UEBERGABE.md`). Bis dahin bleibt alles `noindex`.
 
 ## Was nur vorbereitet ist (Kennzeichnung)
 | Bereich | Stand |

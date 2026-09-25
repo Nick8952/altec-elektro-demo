@@ -1,7 +1,8 @@
 # Inhaltsmatrix: altec-elektro.ch → Demo
 
 Stand der Bestandsaufnahme: **25.09.2026**. Alle Seiten der bestehenden Website wurden mit `curl` abgerufen (HTTP 200), der Text extrahiert
-und verglichen; Rohdaten der Aufnahme liegen nicht im Repo. Die Website ist eine Joomla-Seite (Template «meet_gavern», Copyright 2016).
+und verglichen. Die Rohaufnahme (HTML aller 19 Adressen, Textauszüge, SHA-256-Prüfsummen, Abrufprotokoll) liegt ausserhalb des öffentlichen
+Repos im Workspace unter `00_notes/altec-elektro-quelle-2026-09-25/`. Die Website ist eine Joomla-Seite (Template «meet_gavern», Copyright 2016).
 Übernahmestatus: **vollständig** = alle Fakten und Aussagen übernommen; **geglättet** = Rechtschreibung/Zeichensetzung angepasst, Inhalt gleich;
 **verschoben** = auf anderer Zielseite/anderem Baustein; **offen** = fehlt in der Quelle oder braucht Rückfrage.
 
@@ -24,7 +25,7 @@ und verglichen; Rohdaten der Aufnahme liegen nicht im Repo. Die Website ist eine
 | `/unsere-partner` | Einleitung, 6 Logos (2 verlinkt: Komma3 → komma3.ch, ATC Treuhand → atc-treuhand.ch); Share-Knöpfe | `/partner/` | vollständig, geglättet («erkundigen wir … Entwicklungstendenzen» → «erkunden»); nur die zwei Quell-Links verlinkt |
 | `/kontakt` | Text (Sekretariat Mo–Fr 08–12/13–17, Notfälle abends/Wochenende), Formular (Name, Email, Betreff, Nachricht), Kontaktblock, Karte (Modul noo_maps, ohne sichtbare Koordinaten) | `/kontakt/` (Hero-Text = Quelltext, Kontaktdaten, Bürozeiten, mailto-Formular mit zusätzlichem Feld Telefon, Notfall kompakt, Karte als externer Link) | vollständig; Formular ohne Backend (mailto), Karte nicht eingebettet (Entscheid) |
 | `/kontakt-b`, `/team-b`, `/unsere-partner-b`, `/7x24-stunden-notfall-pikett-b`, `/dienstleistungen-b` | Identische Kopien der Hauptseiten (Fussmenü-Varianten) | in `data/weiterleitungen.json` auf die Zielseiten abgebildet | vollständig (Weiterleitungen greifen erst auf Vercel) |
-| Kontaktblock auf jeder Seite | Altec Elektro GmbH, Hedwigstrasse 12, 8032 Zürich, Telefon +41 44 840 07 70, Fax +41 44 840 07 71, info@altec-elektro.ch, Mo–Fr 08.00–12.00 / 13.00–17.00 | Fusszeile, Kontaktseite, JSON-LD | vollständig |
+| Kontaktblock auf jeder Seite | Altec Elektro GmbH, Hedwigstrasse 12, 8032 Zürich, Telefon +41 44 840 07 70, Fax +41 44 840 07 71, info@altec-elektro.ch, Mo–Fr 08.00–12.00 / 13.00–17.00 | Fusszeile (inkl. Fax), Kontaktseite, Impressum, JSON-LD (nur bei Freigabe) | vollständig |
 | `<meta description>` / `<meta keywords>` | Nennt zusätzlich «Photovoltaik», «Inhousinstallationen», «Elektromontagen», «elektriker witikon» | nicht als Leistung übernommen | **offen**: Photovoltaik erscheint nur in den Meta-Tags, nirgends im Seiteninhalt → beim Kunden klären |
 | Impressum, Datenschutzerklärung, AGB | nicht vorhanden (404 für `/impressum`, `/datenschutz`, `/agb`) | `/impressum/`, `/datenschutz/` neu erstellt (Demo-Betreiber ≠ Unternehmen) | neu; Pflichtangaben des Unternehmens **offen** (siehe UEBERGABE) |
 | Favicon | `templates/meet_gavern/favicon.ico` → 404 | eigenes `app/icon.svg` (Würfel-Motiv) | neu |

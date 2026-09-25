@@ -51,6 +51,7 @@ export function Fusszeile({ einstellungen: e, texte: t }: { einstellungen: Einst
               <a href={telLink(e.telefon)} className="inline-flex min-h-11 items-center font-semibold text-tinte hover:text-rot">{e.telefon}</a>
               <br />
               <a href={`mailto:${e.email}`} className="inline-flex min-h-11 items-center font-semibold text-tinte hover:text-rot">{e.email}</a>
+              {e.fax ? <><br /><span className="inline-flex min-h-9 items-center">{t.ui.fax} {e.fax}</span></> : null}
             </p>
           </div>
           <div className="rounded-[var(--radius-mittel)] border-l-[3px] border-rot bg-papier p-4">

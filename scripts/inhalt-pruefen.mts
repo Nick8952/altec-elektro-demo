@@ -106,6 +106,7 @@ for (const f of seitenDateien) {
   const ort = `Seite ${slug}`;
   if (slugs.has(slug)) fehler.push(`Doppelter Slug: ${ort}`); slugs.add(slug);
   if (`${slug}.json` !== f) fehler.push(`seiten/${f}: Dateiname passt nicht zum Slug «${slug}»`);
+  idPruefen(s.id, ort);
   if (slug === "elektroinstallationen" || slug.startsWith("elektroinstallationen/")) { if (slug !== "elektroinstallationen") fehler.push(`${ort}: Pfad unter /elektroinstallationen/ ist für Leistungen reserviert`); }
   if (!s.titel) fehler.push(`${ort}: Titel fehlt`);
   if (!["seite", "rechtliches"].includes(s.art as string)) fehler.push(`${ort}: art ungültig`);
@@ -141,6 +142,14 @@ for (const f of seitenDateien) {
 }
 const bekannt = new Set<string>(["/", ...[...slugs].filter((s) => s !== "start").map((s) => `/${s}/`), ...[...lslugs].map((s) => `/elektroinstallationen/${s}/`)]);
 for (const [ziel, ort] of interneLinks) { const [pfad, hash] = ziel.split("#"); if (pfad && !bekannt.has(pfad)) fehler.push(`${ort}: interner Link «${ziel}» zeigt auf keine Seite`); if (hash !== undefined && !hash) fehler.push(`${ort}: leerer Anker in «${ziel}»`); }
+// Duplizierte Fakten müssen mit den Einstellungen übereinstimmen
+{
+  const e164 = (n: string) => "tel:+41" + n.replace(/\D/g, "").replace(/^0/, "");
+  const kopf = (t.kopfKnopf as Roh)?.ziel as string;
+  if (kopf !== e164(((e.notfall as Roh).nummern as string[])[0])) fehler.push(`Kopfknopf «${kopf}» ist nicht die erste Notfallnummer`);
+  const mails = new Set([...JSON.stringify(t).matchAll(/[\w.+-]+@[\w-]+(?:\.[\w-]+)+/g)].map((m) => m[0].replace(/\.$/, "")));
+  for (const m of mails) if (m !== e.email) fehler.push(`texte.json nennt E-Mail «${m}», Einstellungen haben «${e.email}»`);
+}
 for (const w of await json<{ von: string; nach: string }[]>("weiterleitungen.json")) if (!bekannt.has(w.nach)) fehler.push(`Weiterleitung ${w.von} → ${w.nach}: Ziel existiert nicht`);
 // Jede Leistung muss in Navigation und Footer erreichbar sein
 const navZiele = new Set(((t.navigation as Roh[]) ?? []).flatMap((n) => [n.ziel as string, ...(((n.kinder as Roh[]) ?? []).map((k) => k.ziel as string))]));

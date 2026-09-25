@@ -7,12 +7,13 @@ import type { Einstellungen, Texte } from "@/lib/content/types";
 /**
  * «E-Mail vorbereiten»: baut aus Name, E-Mail, optionaler Telefonnummer, Anliegen und Nachricht einen mailto:-Link
  * und öffnet das E-Mail-Programm der Nutzerin. Die Website sendet, speichert und protokolliert nichts; es gibt keine
- * Versandbestätigung, nur den Hinweis, dass sich das E-Mail-Programm öffnen sollte. Ohne JavaScript sendet das Formular per GET an mailto:.
+ * Versandbestätigung, nur den Hinweis, dass sich das E-Mail-Programm öffnen sollte. Ohne JavaScript: direkter E-Mail-Link (<noscript>).
  */
 export function Anfrageformular({ einstellungen: e, texte: t }: { einstellungen: Einstellungen; texte: Texte }) {
   const f = t.formular;
   const id = useId();
-  // Ohne JavaScript gilt die native Browser-Prüfung (required/type); mit JavaScript die eigenen, beschrifteten Fehlermeldungen.
+  // Mit JavaScript: eigene, beschriftete Fehlermeldungen (noValidate). Ohne JavaScript: das Formular sendet nichts (kein action=mailto,
+  // weil Browser/Lighthouse eine mailto-Formularaktion als unsicheren Request werten); stattdessen zeigt <noscript> einen direkten E-Mail-Link.
   const geladen = useSyncExternalStore(() => () => {}, () => true, () => false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -30,9 +31,6 @@ export function Anfrageformular({ einstellungen: e, texte: t }: { einstellungen:
   return (
     <form
       className="grid gap-5 rounded-[var(--radius-mittel)] border border-linie bg-papier p-6 sm:p-8"
-      action={`mailto:${e.email}`}
-      method="get"
-      encType="text/plain"
       noValidate={geladen}
       onSubmit={(ev) => {
         ev.preventDefault();
@@ -50,6 +48,11 @@ export function Anfrageformular({ einstellungen: e, texte: t }: { einstellungen:
       <div>
         <h2 className="titel-3">{f.titel}</h2>
         <p className="klein mt-2 text-tinte-2">{f.einleitung}</p>
+        <noscript>
+          <p className="klein mt-2 text-tinte-2">
+            <a href={`mailto:${e.email}?subject=${encodeURIComponent("Anfrage über die Website")}`} className="textlink">{f.emailVorbereiten}: {e.email}</a>
+          </p>
+        </noscript>
       </div>
       <div className="feld">
         <label htmlFor={`${id}-name`}>{f.name} <span aria-hidden="true">*</span></label>

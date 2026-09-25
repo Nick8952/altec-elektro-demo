@@ -10,15 +10,20 @@ const basePath = process.env.BASE_PATH ?? "/altec-elektro-demo";
 const port = Number(process.env.PORT ?? 4321);
 const typen = { ".html": "text/html; charset=utf-8", ".css": "text/css", ".js": "text/javascript", ".json": "application/json", ".webp": "image/webp", ".png": "image/png", ".jpg": "image/jpeg", ".gif": "image/gif", ".svg": "image/svg+xml", ".woff2": "font/woff2", ".woff": "font/woff", ".txt": "text/plain", ".xml": "application/xml", ".ico": "image/x-icon", ".pdf": "application/pdf" };
 
+const host = process.env.HOST ?? "127.0.0.1"; // nur lokal erreichbar (Codex-Befund)
+
 createServer(async (req, res) => {
   const url = new URL(req.url ?? "/", "http://x");
-  let p = decodeURIComponent(url.pathname);
+  let p;
+  try { p = decodeURIComponent(url.pathname); } catch { res.writeHead(400); return res.end("Ungültige Adresse."); }
   if (!p.startsWith(basePath + "/") && p !== basePath) {
     res.writeHead(404, { "content-type": "text/plain" });
     return res.end("Ausserhalb des Unterpfads (wie auf GitHub Pages).");
   }
   p = p.slice(basePath.length) || "/";
-  let datei = path.join(wurzel, p);
+  // Nie ausserhalb von out/ lesen (auch nicht über kodierte «..»).
+  let datei = path.resolve(wurzel, "." + p);
+  if (datei !== wurzel && !datei.startsWith(wurzel + path.sep)) { res.writeHead(403); return res.end("Verboten."); }
   try {
     if ((await stat(datei)).isDirectory()) datei = path.join(datei, "index.html");
   } catch {
@@ -32,4 +37,4 @@ createServer(async (req, res) => {
     res.writeHead(404, { "content-type": "text/html; charset=utf-8" });
     res.end(await readFile(path.join(wurzel, "404.html")));
   }
-}).listen(port, () => console.log(`Vorschau: http://localhost:${port}${basePath}/`));
+}).listen(port, host, () => console.log(`Vorschau: http://localhost:${port}${basePath}/`));

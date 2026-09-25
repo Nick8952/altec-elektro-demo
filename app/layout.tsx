@@ -44,6 +44,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <a href="#inhalt" className="nur-sr focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-[var(--radius-klein)] focus:bg-tinte focus:px-4 focus:py-2 focus:text-papier">
           {t.ui.zumInhalt}
         </a>
+        {!indexierungErlaubt && t.footer.demoHinweis ? (
+          <p className="border-b border-linie bg-flaeche px-4 py-1.5 text-center text-[0.8125rem] text-tinte-2">{t.footer.demoHinweis}</p>
+        ) : null}
         <Kopfzeile einstellungen={e} texte={t} />
         <main id="inhalt" tabIndex={-1} className="outline-none">{children}</main>
         <Fusszeile einstellungen={e} texte={t} />
