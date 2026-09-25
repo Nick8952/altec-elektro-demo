@@ -1,0 +1,27 @@
+import { defineArrayMember, defineField, defineType } from "sanity";
+
+/**
+ * Seitenbausteine (Page Builder). Begrenzter Satz; der Kunde ordnet Bausteine im Studio um, ohne CSS oder IDs zu berühren.
+ * Jeder Baustein hat optional Titel und Anker. Feldnamen = lib/content/types.ts.
+ */
+const basis = [
+  defineField({ name: "titel", title: "Titel", type: "string" }),
+  defineField({ name: "anker", title: "Sprungziel (Anker)", type: "slug", description: "z. B. «leistungen» → /#leistungen. Nur Kleinbuchstaben, Ziffern, Bindestriche.", validation: (r) => r.custom((s) => !s?.current || /^[a-z0-9-]+$/.test(s.current) || "Nur Kleinbuchstaben, Ziffern und Bindestriche.") }),
+];
+const einleitung = defineField({ name: "einleitung", title: "Einleitung", type: "text", rows: 3 });
+const vorschau = (name: string) => ({ select: { titel: "titel" }, prepare: ({ titel }: { titel?: string }) => ({ title: titel || name, subtitle: name }) });
+
+export const bausteine = [
+  defineType({ name: "textBaustein", title: "Text", type: "object", fields: [...basis, defineField({ name: "inhalt", title: "Text", type: "richText", validation: (r) => r.required() }), defineField({ name: "bild", title: "Bild neben dem Text", type: "bild" }), defineField({ name: "bildPosition", title: "Bild links/rechts", type: "string", options: { list: ["links", "rechts"], layout: "radio" }, initialValue: "rechts" }), defineField({ name: "breite", title: "Spaltenbreite", type: "string", options: { list: [{ title: "Schmal (Lesetext)", value: "schmal" }, { title: "Normal", value: "normal" }], layout: "radio" }, initialValue: "schmal" })], preview: vorschau("Text") }),
+  defineType({ name: "leistungenBaustein", title: "Leistungen (Sammelschiene)", type: "object", fields: [...basis, einleitung, defineField({ name: "darstellung", title: "Darstellung", type: "string", options: { list: [{ title: "Schiene (zwei Reihen, ohne Bilder)", value: "schiene" }, { title: "Raster mit Bildern", value: "raster" }], layout: "radio" }, initialValue: "schiene", validation: (r) => r.required() })], description: "Zeigt immer alle Leistungen in ihrer Reihenfolge.", preview: vorschau("Leistungen") }),
+  defineType({ name: "zitatBaustein", title: "Leitsatz", type: "object", fields: [...basis, defineField({ name: "zitat", title: "Leitsatz", type: "text", rows: 2, validation: (r) => r.required().max(160) }), defineField({ name: "inhalt", title: "Text darunter", type: "richText" })], preview: { select: { title: "zitat" } } }),
+  defineType({ name: "spaltenBaustein", title: "Spalten", type: "object", fields: [...basis, einleitung, defineField({ name: "spalten", title: "Spalten", type: "array", of: [defineArrayMember({ type: "object", name: "spalte", fields: [defineField({ name: "titel", title: "Titel", type: "string", validation: (r) => r.required() }), defineField({ name: "inhalt", title: "Text", type: "richText", validation: (r) => r.required() })], preview: { select: { title: "titel" } } })], validation: (r) => r.required().min(2).max(3) })], preview: vorschau("Spalten") }),
+  defineType({ name: "notfallBaustein", title: "Notfalldienst", type: "object", fields: [...basis, defineField({ name: "einleitung", title: "Eigener Text (sonst Text aus den Unternehmensdaten)", type: "text", rows: 3 }), defineField({ name: "mitGebieten", title: "Einsatzgebiete anzeigen", type: "boolean", initialValue: true }), defineField({ name: "kompakt", title: "Kompakt (weniger Abstand)", type: "boolean", initialValue: false })], preview: vorschau("Notfalldienst") }),
+  defineType({ name: "teamBaustein", title: "Team", type: "object", fields: [...basis, einleitung], description: "Zeigt alle Teammitglieder in ihrer Reihenfolge.", preview: vorschau("Team") }),
+  defineType({ name: "partnerBaustein", title: "Partner (Logowand)", type: "object", fields: [...basis, einleitung], description: "Zeigt alle Partner in ihrer Reihenfolge.", preview: vorschau("Partner") }),
+  defineType({ name: "kontaktBaustein", title: "Kontakt", type: "object", fields: [...basis, einleitung, defineField({ name: "mitFormular", title: "Mit «E-Mail vorbereiten»-Formular", type: "boolean", initialValue: true }), defineField({ name: "mitOeffnungszeiten", title: "Büroöffnungszeiten anzeigen", type: "boolean", initialValue: true })], preview: vorschau("Kontakt") }),
+  defineType({ name: "aufrufBaustein", title: "Handlungsaufforderung", type: "object", fields: [...basis, defineField({ name: "text", title: "Text", type: "text", rows: 2 }), defineField({ name: "knopf", title: "Knopf", type: "link", validation: (r) => r.required() }), defineField({ name: "zweiterKnopf", title: "Zweiter Knopf", type: "link" })], preview: vorschau("Handlungsaufforderung") }),
+  defineType({ name: "hinweisBaustein", title: "Hinweisbox", type: "object", fields: [...basis, defineField({ name: "inhalt", title: "Text", type: "richText", validation: (r) => r.required() }), defineField({ name: "art", title: "Art", type: "string", options: { list: [{ title: "Information", value: "info" }, { title: "Wichtig", value: "wichtig" }], layout: "radio" }, initialValue: "info", validation: (r) => r.required() })], preview: vorschau("Hinweisbox") }),
+];
+
+export const bausteinMitglieder = bausteine.map((b) => defineArrayMember({ type: b.name }));
