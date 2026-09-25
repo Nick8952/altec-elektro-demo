@@ -121,8 +121,11 @@ Lighthouse 13.5 gegen die Live-URL (Chrome headless, Standard-Drosselung):
 | /elektroinstallationen/beleuchtung/ | Desktop | 100 | 100 | 100 | 66* | 0.2 s | 0.4 s | 0 | 0 ms |
 | /kontakt/ | Desktop | 100 | 100 | 77** | 63* | 0.2 s | 0.4 s | 0 | 0 ms |
 
-\* nur `noindex` (Demo). \*\* `form action="mailto:"` als «insecure request» gewertet; danach entfernt (Abschnitt 7), Messung nach dem
-zweiten Deploy: siehe unten.
+\* nur `noindex` (Demo). \*\* `form action="mailto:"` als «insecure request» gewertet; danach entfernt (Abschnitt 7).
+
+Zweiter Deploy (Workflow-Lauf 36134404438, alle Jobs grün): Formular ohne `action`, Demo-Hinweis über der Navigation live bestätigt.
+Lighthouse mobil /kontakt/ danach: Performance 100, Accessibility 100, Best Practices 100, SEO 63 (noindex), LCP 1.6 s.
+Funktionsprüfungen gegen die Live-URL nach dem zweiten Deploy: 40/40.
 
 ## 9. Nicht durchführbare Prüfungen
 
